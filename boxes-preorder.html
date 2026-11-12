@@ -16,13 +16,19 @@
     <p>Concept design by Mark Aszkenasy – not the official website of Cafe Nossa.</p>
   </div>
 
+  <!-- Lisbon Porcelain Placa Toponímica Header + Repeating Azulejo Tile Frieze -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand-link" href="index.html">
-        <img class="brand-mark" src="images/logo-mark.svg" width="44" height="44" alt="Cafe Nossa azulejo tile emblem">
-        <span class="brand-text">
-          <span class="brand-name">Cafe Nossa</span>
-          <span class="brand-sub">109 High Street, Yarm</span>
+    <div class="container header-bar">
+      <a class="placa-cartouche" href="index.html" aria-label="Cafe Nossa — 109 High Street, Yarm">
+        <span class="placa-corner tl" aria-hidden="true"></span>
+        <span class="placa-corner tr" aria-hidden="true"></span>
+        <span class="placa-corner bl" aria-hidden="true"></span>
+        <span class="placa-corner br" aria-hidden="true"></span>
+        <img class="placa-emblem" src="images/logo-mark.svg" width="36" height="36" alt="Cafe Nossa azulejo ceramic tile emblem">
+        <span class="placa-inscription">
+          <span class="placa-title">Cafe Nossa</span>
+          <span class="placa-rule" aria-hidden="true"><span class="placa-diamond"></span></span>
+          <span class="placa-street">109 High Street · Yarm</span>
         </span>
       </a>
 
@@ -35,36 +41,78 @@
 
       <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
         <ul class="nav-list">
-          <li><a class="nav-link" href="index.html">Home</a></li>
-          <li><a class="nav-link" href="menu-deli.html">Menu &amp; Deli</a></li>
-          <li><a class="nav-link" href="boxes-preorder.html" aria-current="page">Platters &amp; Pre-Order</a></li>
+          <li>
+            <a class="nav-link" href="index.html">
+              <span class="nav-tile-num" aria-hidden="true">01</span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="menu-deli.html">
+              <span class="nav-tile-num" aria-hidden="true">02</span>
+              <span>Menu &amp; Deli</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="boxes-preorder.html" aria-current="page">
+              <span class="nav-tile-num" aria-hidden="true">03</span>
+              <span>Platters &amp; Pre-Order</span>
+            </a>
+          </li>
         </ul>
         <div class="header-cta-group">
-          <a class="btn btn-outline btn-sm" href="tel:01642640274">01642 640274</a>
-          <a class="btn btn-primary btn-sm" href="#preorder-form">Start Pre-Order</a>
+          <a class="cobalt-phone-badge" href="tel:01642640274">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>01642 640274</span>
+          </a>
+          <a class="btn btn-primary btn-sm" href="#preorder-form">Start Order</a>
         </div>
       </nav>
     </div>
+    <div class="azulejo-frieze" aria-hidden="true"></div>
   </header>
 
   <main id="main-content">
-    <section class="page-hero" aria-labelledby="preorder-heading">
+    <section class="ceramic-subhero" aria-labelledby="preorder-heading">
       <div class="container">
-        <span class="eyebrow">Collection at 109 High Street, Yarm TS15 9BB</span>
-        <h1 id="preorder-heading">Grazing Platter &amp; Pastry Box Pre-Order</h1>
-        <p class="lead">
-          Order ahead for weekend hosting, family celebrations, client gifts or High Street office meetings. Select your box preference below or call the shop directly on <a href="tel:01642640274"><strong>01642 640274</strong></a>.
-        </p>
+        <div class="ceramic-subhero-frame">
+          <svg class="corner-rosette tl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M2 2h9a9 9 0 0 1-9 9V2z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="5.5" cy="5.5" r="1.6" fill="#B85A19"/>
+          </svg>
+          <svg class="corner-rosette tr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 2h-9a9 9 0 0 0 9 9V2z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="18.5" cy="5.5" r="1.6" fill="#B85A19"/>
+          </svg>
+          <svg class="corner-rosette bl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M2 22h9a9 9 0 0 0-9-9v9z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="5.5" cy="18.5" r="1.6" fill="#B85A19"/>
+          </svg>
+          <svg class="corner-rosette br" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 22h-9a9 9 0 0 1 9-9v9z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="18.5" cy="18.5" r="1.6" fill="#B85A19"/>
+          </svg>
+
+          <span class="eyebrow">Collection at 109 High Street, Yarm TS15 9BB</span>
+          <h1 id="preorder-heading">Grazing Platter &amp; Pastry Box Pre-Order</h1>
+          <p class="lead">
+            Reserve freshly baked <em>pastéis de nata</em> boxes, Iberian cheese &amp; charcuterie platters or custom Portuguese wine hampers for collection — or call <a href="tel:01642640274"><strong>01642 640274</strong></a>.
+          </p>
+        </div>
       </div>
     </section>
-
-    <div class="azulejo-divider" aria-hidden="true"></div>
 
     <section class="section" aria-label="Pre-order enquiry form and summary">
       <div class="container form-layout">
         <div class="form-card">
-          <h2 style="margin-bottom: 0.4rem;">Build Your Pre-Order Enquiry</h2>
-          <p class="field-hint" style="margin-bottom: 1.6rem;">
+          <div id="prefill-notice" class="prefill-banner" role="status" aria-live="polite" hidden>
+            Selection carried over from the Mosaic Quick Box Builder — choose your preferred collection date below.
+          </div>
+
+          <h2 style="margin-bottom: 0.35rem;">Build Your Pre-Order Enquiry</h2>
+          <p class="field-hint" style="margin-bottom: 1.5rem;">
             Fields marked <span class="req-star" aria-hidden="true">*</span> are required. Notice period: <span class="ph">[Minimum pre-order notice – owner to confirm]</span>
           </p>
 
@@ -76,7 +124,7 @@
                 <label class="choice-tile" for="box-type-nata">
                   <input type="radio" id="box-type-nata" name="box_type" value="Pastéis de Nata Box" checked>
                   <span class="choice-title">Pastéis de Nata Box</span>
-                  <span class="choice-note">Freshly baked Portuguese custard tarts boxed for sharing or office mornings.</span>
+                  <span class="choice-note">Box of 6 sharing or Box of 12 High Street office custard tarts.</span>
                   <span class="ph">[Box sizes &amp; prices – owner to confirm]</span>
                 </label>
 
@@ -98,14 +146,14 @@
 
             <!-- 2. Size, Quantity & Wine Pairing -->
             <fieldset class="fieldset-reset">
-              <legend class="fieldset-legend">2. Portion Size &amp; Quantity</legend>
+              <legend class="fieldset-legend">2. Box Format &amp; Quantity</legend>
               <div class="form-row two-col">
                 <div class="form-group">
                   <label for="box-size">Preferred Box Tier <span class="req-star" aria-hidden="true">*</span></label>
                   <select id="box-size" name="box_size" required>
-                    <option value="Small / Sharing">Small / Sharing ([Box sizes &amp; prices – owner to confirm])</option>
-                    <option value="Medium Hosting">Medium Hosting ([Box sizes &amp; prices – owner to confirm])</option>
-                    <option value="Large Office / Event">Large Office / Event ([Box sizes &amp; prices – owner to confirm])</option>
+                    <option value="Box of 6 Nata / Small Sharing">Box of 6 Nata / Small Sharing ([Box sizes &amp; prices – owner to confirm])</option>
+                    <option value="Box of 12 Office Box / Medium Hosting">Box of 12 Office Box / Medium Hosting ([Box sizes &amp; prices – owner to confirm])</option>
+                    <option value="Large Event / Hosting Platter">Large Event / Hosting Platter ([Box sizes &amp; prices – owner to confirm])</option>
                   </select>
                   <span class="field-error" id="box-size-error" aria-live="polite"></span>
                 </div>
@@ -143,9 +191,9 @@
                   <label for="collection-time">Preferred Collection Window <span class="req-star" aria-hidden="true">*</span></label>
                   <select id="collection-time" name="collection_time" required>
                     <option value="">Select a time window…</option>
-                    <option value="Morning Collection">Morning Collection [Exact hours – owner to confirm]</option>
-                    <option value="Midday Collection">Midday Collection [Exact hours – owner to confirm]</option>
-                    <option value="Afternoon Collection">Afternoon Collection [Exact hours – owner to confirm]</option>
+                    <option value="Morning Collection">Morning Collection [Daily opening hours – owner to confirm]</option>
+                    <option value="Midday Collection">Midday Collection [Daily opening hours – owner to confirm]</option>
+                    <option value="Afternoon Collection">Afternoon Collection [Daily opening hours – owner to confirm]</option>
                   </select>
                   <span class="field-error" id="collection-time-error" aria-live="polite"></span>
                 </div>
@@ -162,9 +210,9 @@
             </fieldset>
 
             <!-- 4. Customer Contact Details -->
-            <fieldset class="fieldset-reset" style="margin-bottom: 1.25rem;">
+            <fieldset class="fieldset-reset" style="margin-bottom: 1.2rem;">
               <legend class="fieldset-legend">4. Your Contact Details</legend>
-              <div class="form-group" style="margin-bottom: 1.15rem;">
+              <div class="form-group" style="margin-bottom: 1.1rem;">
                 <label for="customer-name">Full Name <span class="req-star" aria-hidden="true">*</span></label>
                 <input type="text" id="customer-name" name="customer_name" autocomplete="name" required>
                 <span class="field-error" id="customer-name-error" aria-live="polite"></span>
@@ -185,7 +233,7 @@
               </div>
             </fieldset>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.04rem; padding: 0.95rem 1.5rem;">
+            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.02rem; padding: 0.92rem 1.4rem;">
               Send Box Pre-Order Enquiry
             </button>
 
@@ -193,7 +241,7 @@
           </form>
         </div>
 
-        <!-- Sticky Live Order Summary & Visual -->
+        <!-- Sticky Live Ceramic Order Summary & Visual -->
         <aside aria-label="Pre-order summary and collection details">
           <div class="summary-card">
             <h3>Your Pre-Order Summary</h3>
@@ -203,8 +251,8 @@
                 <dd id="sum-box-type">Pastéis de Nata Box</dd>
               </div>
               <div>
-                <dt>Tier</dt>
-                <dd id="sum-box-size">Small / Sharing</dd>
+                <dt>Format / Tier</dt>
+                <dd id="sum-box-size">Box of 6 Nata / Small Sharing</dd>
               </div>
               <div>
                 <dt>Quantity</dt>
@@ -224,7 +272,7 @@
               </div>
             </dl>
 
-            <p style="font-size: 0.88rem; color: #D5E5F8; margin-bottom: 1rem;">
+            <p style="font-size: 0.88rem; color: #DCEAF9; margin-bottom: 1rem;">
               <strong>Collection Point:</strong><br>
               Cafe Nossa, 109 High Street, Yarm TS15 9BB<br>
               Open 7 days a week.
@@ -232,7 +280,7 @@
             <a class="btn btn-primary" style="width: 100%;" href="tel:01642640274">Or Call 01642 640274</a>
           </div>
 
-          <figure class="editorial-figure" style="margin-top: 1.5rem;">
+          <figure class="editorial-figure" style="margin-top: 1.4rem;">
             <img
               src="images/hero.jpg"
               width="1440"
@@ -256,7 +304,7 @@
         <div>
           <h3>Cafe Nossa</h3>
           <p>Independent Portuguese delicatessen, brunch &amp; coffee shop at 109 High Street, Yarm TS15 9BB. Open 7 days a week.</p>
-          <p><a href="tel:01642640274">01642 640274</a></p>
+          <p><a href="tel:01642640274"><strong>01642 640274</strong></a></p>
         </div>
         <div>
           <h3>Explore</h3>

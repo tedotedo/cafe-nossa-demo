@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Cafe Nossa | Portuguese Delicatessen, Brunch &amp; Speciality Coffee in Yarm</title>
-  <meta name="description" content="Concept website for Cafe Nossa at 109 High Street, Yarm TS15 9BB — independent Portuguese delicatessen, pastéis de nata, all-day brunch, Iberian cheeses, cured meats and Portuguese wines.">
+  <meta name="description" content="Concept website for Cafe Nossa at 109 High Street, Yarm TS15 9BB — independent Portuguese delicatessen, pastéis de nata, speciality coffee, all-day brunch, Iberian cheeses, cured meats and regional Portuguese wines.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -16,13 +16,19 @@
     <p>Concept design by Mark Aszkenasy – not the official website of Cafe Nossa.</p>
   </div>
 
+  <!-- Lisbon Porcelain Placa Toponímica Header + Repeating Azulejo Tile Frieze -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand-link" href="index.html">
-        <img class="brand-mark" src="images/logo-mark.svg" width="44" height="44" alt="Cafe Nossa azulejo tile emblem">
-        <span class="brand-text">
-          <span class="brand-name">Cafe Nossa</span>
-          <span class="brand-sub">109 High Street, Yarm</span>
+    <div class="container header-bar">
+      <a class="placa-cartouche" href="index.html" aria-label="Cafe Nossa — 109 High Street, Yarm">
+        <span class="placa-corner tl" aria-hidden="true"></span>
+        <span class="placa-corner tr" aria-hidden="true"></span>
+        <span class="placa-corner bl" aria-hidden="true"></span>
+        <span class="placa-corner br" aria-hidden="true"></span>
+        <img class="placa-emblem" src="images/logo-mark.svg" width="36" height="36" alt="Cafe Nossa azulejo ceramic tile emblem">
+        <span class="placa-inscription">
+          <span class="placa-title">Cafe Nossa</span>
+          <span class="placa-rule" aria-hidden="true"><span class="placa-diamond"></span></span>
+          <span class="placa-street">109 High Street · Yarm</span>
         </span>
       </a>
 
@@ -35,218 +41,324 @@
 
       <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
         <ul class="nav-list">
-          <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
-          <li><a class="nav-link" href="menu-deli.html">Menu &amp; Deli</a></li>
-          <li><a class="nav-link" href="boxes-preorder.html">Platters &amp; Pre-Order</a></li>
+          <li>
+            <a class="nav-link" href="index.html" aria-current="page">
+              <span class="nav-tile-num" aria-hidden="true">01</span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="menu-deli.html">
+              <span class="nav-tile-num" aria-hidden="true">02</span>
+              <span>Menu &amp; Deli</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="boxes-preorder.html">
+              <span class="nav-tile-num" aria-hidden="true">03</span>
+              <span>Platters &amp; Pre-Order</span>
+            </a>
+          </li>
         </ul>
         <div class="header-cta-group">
-          <a class="btn btn-outline btn-sm" href="tel:01642640274">01642 640274</a>
-          <a class="btn btn-primary btn-sm" href="boxes-preorder.html">Pre-Order Boxes</a>
+          <a class="cobalt-phone-badge" href="tel:01642640274">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>01642 640274</span>
+          </a>
+          <a class="btn btn-primary btn-sm" href="boxes-preorder.html">Pre-Order</a>
         </div>
       </nav>
     </div>
+    <div class="azulejo-frieze" aria-hidden="true"></div>
   </header>
 
   <main id="main-content">
-    <!-- Sunlit 109 High Street Hero -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="container hero-grid">
-        <div>
-          <div class="acclaim-row">
-            <span class="acclaim-pill">★ Voted #1 Coffee on This Is Yarm</span>
-            <span class="acclaim-pill secondary">Featured in The Northern Echo</span>
-          </div>
-          <span class="eyebrow">Independent Portuguese Delicatessen &amp; Coffee Shop</span>
-          <h1 id="hero-heading">Lisbon warmth, speciality coffee &amp; Iberian deli craft on Yarm High Street.</h1>
-          <p class="lead">
-            Open seven days a week at 109 High Street, Cafe Nossa brings golden <em>pastéis de nata</em>, speciality coffee, all-day brunch, artisan Iberian cheeses, cured meats and regional Portuguese wines together under one sunlit roof.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="menu-deli.html">Explore Menu &amp; Deli</a>
-            <a class="btn btn-azulejo" href="boxes-preorder.html">Pre-Order Boxes &amp; Platters</a>
-          </div>
-          <div class="hero-meta">
-            <div>
-              <strong>Find Us on the Cobbles</strong>
-              109 High Street, Yarm TS15 9BB
-            </div>
-            <div>
-              <strong>Open 7 Days a Week</strong>
-              <span class="ph">[Daily opening hours – owner to confirm]</span>
-            </div>
-          </div>
-        </div>
-
-        <figure class="editorial-figure">
-          <img
-            src="images/hero.jpg"
-            width="1440"
-            height="803"
-            alt="Two golden custard pastéis de nata on a hand-painted blue-and-white Portuguese ceramic plate beside a flat white coffee on a sunlit wooden table"
-          >
-          <figcaption>
-            <span>Freshly baked <em>pastéis de nata</em> &amp; speciality espresso craft</span>
-            <span class="illustrative-tag">Illustrative image</span>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <div class="azulejo-divider" aria-hidden="true"></div>
-
-    <!-- Three Craft Pillars -->
-    <section class="section" aria-labelledby="pillars-heading">
+    <!-- 4-Tile Asymmetric Portuguese Azulejo Bento Mosaic -->
+    <section class="mosaic-stage" aria-labelledby="hero-heading">
       <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">From Morning Espresso to Evening Bottle</span>
-          <h2 id="pillars-heading">A neighbourhood <em>pastelaria</em>, brunch table &amp; Iberian larder.</h2>
-          <p class="lead">
-            Whether stopping in for Yarm’s community-voted #1 coffee, lingering over brunch, or picking up Portuguese wine and cured meats for the weekend, every counter celebrates Iberian provenance.
-          </p>
-        </div>
+        <div class="azulejo-bento-mosaic">
+          <!-- TILE A (7 cols, Top-Left): Glazed Porcelain Statement Tile with Corner Azulejo Rosettes -->
+          <div class="mosaic-tile tile-statement">
+            <svg class="corner-rosette tl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2 2h9a9 9 0 0 1-9 9V2z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+              <circle cx="5.5" cy="5.5" r="1.6" fill="#B85A19"/>
+            </svg>
+            <svg class="corner-rosette tr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M22 2h-9a9 9 0 0 0 9 9V2z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+              <circle cx="18.5" cy="5.5" r="1.6" fill="#B85A19"/>
+            </svg>
+            <svg class="corner-rosette bl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2 22h9a9 9 0 0 0-9-9v9z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+              <circle cx="5.5" cy="18.5" r="1.6" fill="#B85A19"/>
+            </svg>
+            <svg class="corner-rosette br" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M22 22h-9a9 9 0 0 1 9-9v9z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+              <circle cx="18.5" cy="18.5" r="1.6" fill="#B85A19"/>
+            </svg>
 
-        <div class="pillars-grid">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
-                <path d="M3 8h14v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
-                <path d="M6 2v3M10 2v3M14 2v3"/>
-              </svg>
+            <div class="honour-row">
+              <span class="honour-medallion">★ Voted #1 Coffee on This Is Yarm</span>
+              <span class="honour-medallion echo">Featured in The Northern Echo</span>
             </div>
-            <h3>Voted #1 Coffee on This Is Yarm</h3>
-            <p>
-              Recognised by Yarm locals for consistent, velvety speciality coffee alongside crisp, caramelised <em>pastéis de nata</em> straight from the counter.
-            </p>
-          </article>
 
-          <article class="card terracotta-top">
-            <div class="card-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M8 12h8M12 8v8"/>
-              </svg>
+            <span class="eyebrow">Portuguese Delicatessen &amp; Pastelaria</span>
+            <h1 id="hero-heading">Sunlit Lisbon Bakery, #1 Coffee &amp; Iberian Deli on Yarm High Street</h1>
+            <p class="lead">
+              Open seven days a week at 109 High Street, Cafe Nossa brings warm laminated <em>pastéis de nata</em>, speciality coffee, all-day brunch, Iberian cheeses, cured meats and regional Portuguese wines together under one sunlit roof.
+            </p>
+            <div class="tile-cta-row">
+              <a class="btn btn-primary" href="menu-deli.html">Explore Menu &amp; Deli</a>
+              <a class="btn btn-azulejo" href="boxes-preorder.html">Pre-Order Boxes &amp; Platters</a>
             </div>
-            <h3>All-Day Brunch, 7 Days a Week</h3>
-            <p>
-              Relaxed all-day brunch served throughout the week at 109 High Street, pairing generous plates with Iberian ingredients and warm table hospitality.
-            </p>
-          </article>
+          </div>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M8 2h8l-1 7a3 3 0 0 1-3 3 3 3 0 0 1-3-3L8 2z"/>
-                <path d="M12 12v8M8 20h8"/>
-              </svg>
+          <!-- TILE B (5 cols, Tall Right Spanning 2 Rows): Full-Bleed Sunlit Pastéis de Nata Photo Tile -->
+          <figure class="mosaic-tile tile-photo">
+            <img
+              src="images/hero.jpg"
+              width="1440"
+              height="803"
+              alt="Two golden custard pastéis de nata on a hand-painted blue-and-white Portuguese ceramic plate beside a flat white coffee on a sunlit wooden table"
+            >
+            <figcaption class="porcelain-photo-caption">
+              <span>Freshly baked <em>pastéis de nata</em> &amp; speciality coffee</span>
+              <span class="illustrative-tag">Illustrative image</span>
+            </figcaption>
+          </figure>
+
+          <!-- TILE C (3 cols, Bottom-Left): Deep Cobalt Glaze High Street Plaque -->
+          <aside class="mosaic-tile tile-cobalt-plaque" aria-label="High Street location and opening summary">
+            <div>
+              <span class="cobalt-plaque-kicker">◆ Open 7 Days a Week</span>
+              <p class="cobalt-plaque-address">109 High Street,<br>Yarm TS15 9BB</p>
+              <p style="margin-bottom: 0;">
+                <span class="ph ph-dark">[Daily opening hours – owner to confirm]</span>
+              </p>
             </div>
-            <h3>Iberian Deli &amp; Portuguese Wines</h3>
-            <p>
-              Stock your table from our delicatessen counter: regional Portuguese wines, artisan Iberian cheeses, sliced cured meats and pantry delicacies.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+            <div style="display: grid; gap: 0.45rem;">
+              <a class="cobalt-plaque-phone" href="tel:01642640274">01642 640274</a>
+              <a href="#visit" style="color: #DCEAF9; font-size: 0.82rem; font-weight: 700; text-align: center;">7-Day Ledger &amp; Directions ↓</a>
+            </div>
+          </aside>
 
-    <!-- Iberian Deli & Grazing Shelf Preview -->
-    <section class="section section-warm" aria-labelledby="deli-preview-heading">
-      <div class="container split-grid">
-        <figure class="editorial-figure">
-          <img
-            src="images/feature.jpg"
-            width="1200"
-            height="896"
-            alt="Wooden Iberian grazing box filled with cured chorizo, sheep's milk cheeses, fresh figs, olives and crusty bread alongside bottles of Portuguese red wine"
-            loading="lazy"
-          >
-          <figcaption>
-            <span>Iberian grazing selection &amp; regional Portuguese wine shelf</span>
-            <span class="illustrative-tag">Illustrative image</span>
-          </figcaption>
-        </figure>
+          <!-- TILE D (4 cols, Bottom-Center): Warm Custard-Ochre Interactive Quick Nata & Grazing Box Builder -->
+          <div class="mosaic-tile tile-ochre-builder">
+            <div class="builder-glaze-header">
+              <span>Quick Nata &amp; Grazing Box Builder</span>
+              <span>109 Collection</span>
+            </div>
 
-        <div>
-          <span class="eyebrow">Delicatessen &amp; Take-Home Counter</span>
-          <h2 id="deli-preview-heading">Bring an Iberian table home — or order ahead for effortless hosting.</h2>
-          <p>
-            Featured in <em>The Northern Echo</em> and loved along Yarm High Street, Cafe Nossa’s deli counter makes it simple to build an authentic grazing board or pick up a thoughtful food-and-wine gift.
-          </p>
-          <ul class="check-list">
-            <li>Artisan Iberian cheeses &amp; sliced cured meats prepared at the counter</li>
-            <li>Curated Portuguese wines across crisp whites, structured reds &amp; gifting bottles</li>
-            <li>Pre-order boxes of <em>pastéis de nata</em>, Iberian grazing platters &amp; custom deli hampers</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn btn-azulejo" href="menu-deli.html#wine-deli">Browse Wine &amp; Deli Counter</a>
-            <a class="btn btn-primary" href="boxes-preorder.html">Enquire About Grazing Boxes</a>
+            <form id="mosaic-quick-builder" class="quick-builder-form" action="boxes-preorder.html" method="get">
+              <fieldset class="qb-fieldset">
+                <legend class="qb-legend">Tap a box to start your pre-order:</legend>
+                <div class="qb-pills">
+                  <label class="qb-pill" for="qb-nata6">
+                    <input type="radio" id="qb-nata6" name="preset" value="nata6" checked>
+                    <span>Box of 6 Nata</span>
+                  </label>
+                  <label class="qb-pill" for="qb-nata12">
+                    <input type="radio" id="qb-nata12" name="preset" value="nata12">
+                    <span>Box of 12 Office Box</span>
+                  </label>
+                  <label class="qb-pill" for="qb-grazing">
+                    <input type="radio" id="qb-grazing" name="preset" value="grazing">
+                    <span>Iberian Grazing Platter</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div>
+                <div class="qb-bottom-bar">
+                  <div class="qb-qty-wrap">
+                    <label class="qb-qty-label" for="qb-qty">Qty</label>
+                    <div class="qb-stepper">
+                      <button type="button" class="qb-step-btn" data-qty-step="-1" aria-label="Decrease box quantity">−</button>
+                      <input type="number" id="qb-qty" class="qb-qty-input" name="qty" min="1" max="50" value="1">
+                      <button type="button" class="qb-step-btn" data-qty-step="1" aria-label="Increase box quantity">+</button>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary qb-submit-btn">Build Pre-Order →</button>
+                </div>
+                <div style="margin-top: 0.45rem;">
+                  <span class="ph ph-ochre">[Box sizes &amp; prices – owner to confirm]</span>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="azulejo-divider" aria-hidden="true"></div>
-
-    <!-- 7-Day Opening Hours & High Street Location -->
-    <section class="section" id="visit" aria-labelledby="visit-heading">
+    <!-- Below the Fold: "Three Counters Under One Sunlit Roof" Triptych -->
+    <section class="section" id="three-counters" aria-labelledby="triptych-heading">
       <div class="container">
-        <div class="section-header">
+        <div class="triptych-architrave">
+          <span class="eyebrow">Pastelaria · Brunch Table · Garrafeira</span>
+          <h2 id="triptych-heading">Three Counters Under One Sunlit Roof</h2>
+          <p class="lead">
+            From Yarm’s community-voted #1 morning espresso to weekend Iberian grazing boards and regional Portuguese bottles, explore each counter at 109 High Street.
+          </p>
+        </div>
+
+        <div class="triptych-grid">
+          <!-- Counter 01 -->
+          <article class="counter-panel">
+            <div class="counter-arch-top">
+              <span class="counter-numeral">01 · PASTELARIA</span>
+              <span class="counter-tag">★ #1 Coffee</span>
+            </div>
+            <div class="counter-body">
+              <div>
+                <div class="counter-svg-motif" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h16v8a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6v-8z"/>
+                    <path d="M21 14h2.5a3.5 3.5 0 0 1 0 7H21"/>
+                    <path d="M9 5v4M13 4v5M17 5v4"/>
+                  </svg>
+                </div>
+                <h3>Pastelaria &amp; #1 Espresso</h3>
+                <p>
+                  Voted <strong>#1 Coffee on This Is Yarm</strong>. Enjoy dialled-in speciality espresso paired with crisp, blistered <em>pastéis de nata</em> and counter bakes sit-in or boxed to share.
+                </p>
+                <ul class="counter-list">
+                  <li>Velvety espresso, flat whites, cortados &amp; loose teas</li>
+                  <li>Warm Portuguese custard tarts baked fresh daily</li>
+                  <li>6-tart sharing &amp; 12-tart High Street office boxes</li>
+                </ul>
+              </div>
+              <a class="btn btn-outline btn-sm" href="menu-deli.html#coffee-brunch">View Coffee &amp; Bakehouse →</a>
+            </div>
+          </article>
+
+          <!-- Counter 02 -->
+          <article class="counter-panel ochre-accent">
+            <div class="counter-arch-top">
+              <span class="counter-numeral">02 · MESA DE BRUNCH</span>
+              <span class="counter-tag">7 Days a Week</span>
+            </div>
+            <div class="counter-body">
+              <div>
+                <div class="counter-svg-motif" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="16" cy="16" r="11"/>
+                    <circle cx="16" cy="16" r="6"/>
+                    <circle cx="15" cy="15" r="2.2" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3>All-Day Iberian Brunch</h3>
+                <p>
+                  Relaxed all-day brunch served seven days a week at 109 High Street, bringing Iberian cured meats, artisan breads, eggs and deli produce together at the table.
+                </p>
+                <ul class="counter-list">
+                  <li>Cooked-to-order Iberian &amp; classic brunch plates</li>
+                  <li>Toasted deli sandwiches &amp; savoury counter light bites</li>
+                  <li>No-rush High Street table hospitality every day</li>
+                </ul>
+              </div>
+              <a class="btn btn-primary btn-sm" href="menu-deli.html#coffee-brunch">Explore Brunch Counter →</a>
+            </div>
+          </article>
+
+          <!-- Counter 03 (Featuring images/feature.jpg captioned "Illustrative image") -->
+          <article class="counter-panel">
+            <div class="counter-arch-top">
+              <span class="counter-numeral">03 · MERCEARIA &amp; VINHOS</span>
+              <span class="counter-tag">Northern Echo Feature</span>
+            </div>
+            <div class="counter-body">
+              <div>
+                <figure class="triptych-figure">
+                  <img
+                    src="images/feature.jpg"
+                    width="1200"
+                    height="896"
+                    alt="Wooden Iberian grazing box filled with cured chorizo, sheep's milk cheeses, figs, olives and sourdough beside bottles of Portuguese red wine"
+                    loading="lazy"
+                  >
+                  <figcaption>
+                    <span>Iberian grazing &amp; Portuguese wines</span>
+                    <span class="illustrative-tag">Illustrative image</span>
+                  </figcaption>
+                </figure>
+                <h3>Regional Portuguese Wine &amp; Cheese Counter</h3>
+                <p>
+                  Featured in <em>The Northern Echo</em>: shop artisan Iberian cheeses, sliced charcuterie, <em>conservas</em> and regional Portuguese wines (Vinho Verde, Douro &amp; Alentejo) to take home.
+                </p>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.55rem;">
+                <a class="btn btn-azulejo btn-sm" href="menu-deli.html#wine-deli">Wine &amp; Deli Shelf →</a>
+                <a class="btn btn-outline btn-sm" href="boxes-preorder.html?preset=grazing">Order Platter</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="azulejo-frieze" aria-hidden="true"></div>
+
+    <!-- 109 High Street Porcelain Almanac & 7-Day Opening Hours -->
+    <section class="section section-limestone" id="visit" aria-labelledby="visit-heading">
+      <div class="container">
+        <div class="triptych-architrave">
           <span class="eyebrow">109 High Street, Yarm TS15 9BB</span>
-          <h2 id="visit-heading">Visit Cafe Nossa — open seven days a week.</h2>
+          <h2 id="visit-heading">Shopfront Hours &amp; High Street Directions</h2>
           <p class="lead">
-            Step straight in from Yarm High Street for coffee, brunch and deli shopping, or call the shop directly for platter enquiries and daily counter availability.
+            Step straight in from the Yarm cobbles seven days a week for coffee, brunch and deli counter shopping, or telephone the counter ahead for platter reservations.
           </p>
         </div>
 
-        <div class="visit-grid">
-          <div class="hours-card">
-            <h3>7-Day Opening Hours</h3>
-            <p class="field-hint">Open every day of the week at 109 High Street, Yarm.</p>
+        <div class="almanac-grid">
+          <div class="porcelain-ledger">
+            <h3 style="color: var(--cobalt);">7-Day Shopfront Ledger</h3>
+            <p class="field-hint">Open seven days a week at 109 High Street, Yarm TS15 9BB.</p>
             <table class="hours-table" aria-label="Weekly opening hours">
               <tbody>
                 <tr>
                   <th scope="row">Monday</th>
-                  <td><span class="ph">[Exact daily hours – owner to confirm]</span></td>
+                  <td><span class="ph">[Daily opening hours – owner to confirm]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Tuesday</th>
-                  <td><span class="ph">[Exact daily hours – owner to confirm]</span></td>
+                  <td><span class="ph">[Daily opening hours – owner to confirm]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Wednesday</th>
-                  <td><span class="ph">[Exact daily hours – owner to confirm]</span></td>
+                  <td><span class="ph">[Daily opening hours – owner to confirm]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Thursday</th>
-                  <td><span class="ph">[Exact daily hours – owner to confirm]</span></td>
+                  <td><span class="ph">[Daily opening hours – owner to confirm]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Friday</th>
-                  <td><span class="ph">[Exact daily hours – owner to confirm]</span></td>
+                  <td><span class="ph">[Daily opening hours – owner to confirm]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Saturday</th>
-                  <td><span class="ph">[Exact daily hours – owner to confirm]</span></td>
+                  <td><span class="ph">[Daily opening hours – owner to confirm]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Sunday</th>
-                  <td><span class="ph">[Exact daily hours – owner to confirm]</span></td>
+                  <td><span class="ph">[Daily opening hours – owner to confirm]</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <aside class="contact-panel" aria-label="Shop contact and directions">
+          <aside class="directions-plaque" aria-label="Shop contact and Google Maps directions">
             <div>
-              <h3>Get in Touch &amp; Directions</h3>
-              <p>Give the counter a ring for daily bakehouse availability, deli stock or bespoke platter pre-orders.</p>
+              <h3>Speak to the Counter</h3>
+              <p>Call directly for daily bakehouse availability, Iberian cheese &amp; wine guidance, or bespoke grazing box pre-orders.</p>
               <ul class="contact-detail-list">
                 <li>
-                  <strong>Address</strong>
+                  <strong>High Street Address</strong>
                   109 High Street, Yarm TS15 9BB
                 </li>
                 <li>
-                  <strong>Telephone</strong>
+                  <strong>Shop Telephone</strong>
                   <a href="tel:01642640274">01642 640274</a>
                 </li>
                 <li>
@@ -256,11 +368,10 @@
               </ul>
             </div>
 
-            <div class="hero-actions" style="margin-bottom: 0;">
+            <div class="tile-cta-row" style="margin-top: 0;">
               <a class="btn btn-primary" href="tel:01642640274">Call 01642 640274</a>
               <a
                 class="btn btn-outline"
-                style="border-color: #FFFFFF; color: #FFFFFF;"
                 href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+Nossa+109+High+Street+Yarm+TS15+9BB"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -278,7 +389,7 @@
         <div>
           <h3>Cafe Nossa</h3>
           <p>Independent Portuguese delicatessen, brunch &amp; coffee shop at 109 High Street, Yarm TS15 9BB. Open 7 days a week.</p>
-          <p><a href="tel:01642640274">01642 640274</a></p>
+          <p><a href="tel:01642640274"><strong>01642 640274</strong></a></p>
         </div>
         <div>
           <h3>Explore</h3>

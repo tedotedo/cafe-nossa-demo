@@ -16,13 +16,19 @@
     <p>Concept design by Mark Aszkenasy – not the official website of Cafe Nossa.</p>
   </div>
 
+  <!-- Lisbon Porcelain Placa Toponímica Header + Repeating Azulejo Tile Frieze -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand-link" href="index.html">
-        <img class="brand-mark" src="images/logo-mark.svg" width="44" height="44" alt="Cafe Nossa azulejo tile emblem">
-        <span class="brand-text">
-          <span class="brand-name">Cafe Nossa</span>
-          <span class="brand-sub">109 High Street, Yarm</span>
+    <div class="container header-bar">
+      <a class="placa-cartouche" href="index.html" aria-label="Cafe Nossa — 109 High Street, Yarm">
+        <span class="placa-corner tl" aria-hidden="true"></span>
+        <span class="placa-corner tr" aria-hidden="true"></span>
+        <span class="placa-corner bl" aria-hidden="true"></span>
+        <span class="placa-corner br" aria-hidden="true"></span>
+        <img class="placa-emblem" src="images/logo-mark.svg" width="36" height="36" alt="Cafe Nossa azulejo ceramic tile emblem">
+        <span class="placa-inscription">
+          <span class="placa-title">Cafe Nossa</span>
+          <span class="placa-rule" aria-hidden="true"><span class="placa-diamond"></span></span>
+          <span class="placa-street">109 High Street · Yarm</span>
         </span>
       </a>
 
@@ -35,55 +41,97 @@
 
       <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
         <ul class="nav-list">
-          <li><a class="nav-link" href="index.html">Home</a></li>
-          <li><a class="nav-link" href="menu-deli.html" aria-current="page">Menu &amp; Deli</a></li>
-          <li><a class="nav-link" href="boxes-preorder.html">Platters &amp; Pre-Order</a></li>
+          <li>
+            <a class="nav-link" href="index.html">
+              <span class="nav-tile-num" aria-hidden="true">01</span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="menu-deli.html" aria-current="page">
+              <span class="nav-tile-num" aria-hidden="true">02</span>
+              <span>Menu &amp; Deli</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="boxes-preorder.html">
+              <span class="nav-tile-num" aria-hidden="true">03</span>
+              <span>Platters &amp; Pre-Order</span>
+            </a>
+          </li>
         </ul>
         <div class="header-cta-group">
-          <a class="btn btn-outline btn-sm" href="tel:01642640274">01642 640274</a>
-          <a class="btn btn-primary btn-sm" href="boxes-preorder.html">Pre-Order Boxes</a>
+          <a class="cobalt-phone-badge" href="tel:01642640274">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>01642 640274</span>
+          </a>
+          <a class="btn btn-primary btn-sm" href="boxes-preorder.html">Pre-Order</a>
         </div>
       </nav>
     </div>
+    <div class="azulejo-frieze" aria-hidden="true"></div>
   </header>
 
   <main id="main-content">
-    <section class="page-hero" aria-labelledby="page-heading">
+    <section class="ceramic-subhero" aria-labelledby="page-heading">
       <div class="container">
-        <span class="eyebrow">109 High Street, Yarm · Open 7 Days a Week</span>
-        <h1 id="page-heading">Coffee, Brunch &amp; Iberian Delicatessen Counter</h1>
-        <p class="lead">
-          Voted <strong>#1 Coffee</strong> on This Is Yarm and featured in <em>The Northern Echo</em>. Browse our two signature counters below — exact seasonal dishes, bottle list and prices are marked ready for owner confirmation.
-        </p>
+        <div class="ceramic-subhero-frame">
+          <svg class="corner-rosette tl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M2 2h9a9 9 0 0 1-9 9V2z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="5.5" cy="5.5" r="1.6" fill="#B85A19"/>
+          </svg>
+          <svg class="corner-rosette tr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 2h-9a9 9 0 0 0 9 9V2z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="18.5" cy="5.5" r="1.6" fill="#B85A19"/>
+          </svg>
+          <svg class="corner-rosette bl" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M2 22h9a9 9 0 0 0-9-9v9z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="5.5" cy="18.5" r="1.6" fill="#B85A19"/>
+          </svg>
+          <svg class="corner-rosette br" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 22h-9a9 9 0 0 1 9-9v9z" fill="#EAF1FA" stroke="#123B70" stroke-width="1.5"/>
+            <circle cx="18.5" cy="18.5" r="1.6" fill="#B85A19"/>
+          </svg>
+
+          <div class="honour-row">
+            <span class="honour-medallion">★ Voted #1 Coffee on This Is Yarm</span>
+            <span class="honour-medallion echo">Featured in The Northern Echo</span>
+          </div>
+          <span class="eyebrow">109 High Street, Yarm TS15 9BB · Open 7 Days a Week</span>
+          <h1 id="page-heading">Pastelaria, Brunch &amp; Iberian Delicatessen Counter</h1>
+          <p class="lead">
+            Browse our sit-in café &amp; bakehouse alongside our retail Portuguese wine and Iberian delicatessen counter. Exact seasonal dishes, bottle list and counter prices are marked ready for owner confirmation.
+          </p>
+        </div>
       </div>
     </section>
 
-    <div class="azulejo-divider" aria-hidden="true"></div>
-
     <section class="section" aria-label="Menu and delicatessen showcase">
       <div class="container">
-        <!-- Interactive Counter Filter Controls -->
+        <!-- Interactive Ceramic Tile Filter Controls -->
         <div class="filter-tabs" role="group" aria-label="Filter counter sections">
           <button type="button" class="tab-btn" data-counter-filter="all" aria-pressed="true">
             All Counters
           </button>
           <button type="button" class="tab-btn" data-counter-filter="coffee-brunch" aria-pressed="false">
-            1. Coffee, Pastéis de Nata &amp; Brunch
+            01 · Coffee, Pastéis de Nata &amp; Brunch
           </button>
           <button type="button" class="tab-btn" data-counter-filter="wine-deli" aria-pressed="false">
-            2. Portuguese Wine &amp; Iberian Deli
+            02 · Portuguese Wine &amp; Iberian Deli
           </button>
         </div>
 
-        <!-- SHOWCASE 1: Speciality Coffee, Pastéis de Nata & All-Day Brunch -->
+        <!-- COUNTER 01: Speciality Coffee, Pastéis de Nata & All-Day Brunch -->
         <div class="menu-section-block" id="coffee-brunch" data-counter-section="coffee-brunch">
           <article class="menu-board" aria-labelledby="board-coffee-title">
             <div class="menu-board-header">
               <div>
-                <span class="eyebrow">Counter One · Café &amp; Kitchen</span>
+                <span class="eyebrow">Counter 01 · Pastelaria &amp; Brunch Kitchen</span>
                 <h2 id="board-coffee-title" style="margin-bottom: 0;">Speciality Coffee, Pastéis de Nata &amp; All-Day Brunch</h2>
               </div>
-              <span class="acclaim-pill">★ #1 Coffee on This Is Yarm</span>
+              <span class="honour-medallion">★ #1 Coffee on This Is Yarm</span>
             </div>
 
             <div class="menu-category-grid">
@@ -106,14 +154,14 @@
                   </li>
                 </ul>
 
-                <h3 style="margin-top: 1.75rem;">Pastéis de Nata &amp; Counter Bakehouse</h3>
+                <h3 style="margin-top: 1.65rem;">Pastéis de Nata &amp; Counter Bakehouse</h3>
                 <ul class="menu-item-list">
                   <li class="menu-item">
                     <div class="menu-item-top">
                       <span class="menu-item-title">Traditional Pastéis de Nata</span>
                       <span class="ph">[Selection &amp; price – owner to supply]</span>
                     </div>
-                    <p class="menu-item-desc">Crisp laminated pastry cases filled with rich, blistered Portuguese custard — enjoy warm at the table or boxed to take home.</p>
+                    <p class="menu-item-desc">Crisp laminated pastry cases filled with rich, blistered Portuguese custard — enjoy warm at the table or reserve 6-tart and 12-tart sharing boxes.</p>
                   </li>
                   <li class="menu-item">
                     <div class="menu-item-top">
@@ -147,7 +195,7 @@
                       <span class="menu-item-title">Vegetarian, Gluten-Aware &amp; Allergen Guidance</span>
                       <span class="ph">[Allergen matrix – owner to supply]</span>
                     </div>
-                    <p class="menu-item-desc">Please speak to the team at 109 High Street or call <a href="tel:01642640274">01642 640274</a> before ordering with specific dietary needs.</p>
+                    <p class="menu-item-desc">Please speak to the team at 109 High Street or call <a href="tel:01642640274"><strong>01642 640274</strong></a> before ordering with specific dietary needs.</p>
                   </li>
                 </ul>
               </div>
@@ -155,15 +203,15 @@
           </article>
         </div>
 
-        <!-- SHOWCASE 2: Portuguese Wine & Iberian Deli Counter -->
+        <!-- COUNTER 02: Portuguese Wine & Iberian Deli Counter -->
         <div class="menu-section-block" id="wine-deli" data-counter-section="wine-deli">
           <article class="menu-board" aria-labelledby="board-deli-title">
             <div class="menu-board-header">
               <div>
-                <span class="eyebrow">Counter Two · Mercearia &amp; Garrafeira</span>
+                <span class="eyebrow">Counter 02 · Mercearia &amp; Garrafeira</span>
                 <h2 id="board-deli-title" style="margin-bottom: 0;">Portuguese Wine &amp; Iberian Deli Counter</h2>
               </div>
-              <a class="btn btn-primary btn-sm" href="boxes-preorder.html">Pre-Order a Deli Box</a>
+              <a class="btn btn-primary btn-sm" href="boxes-preorder.html?preset=grazing">Pre-Order Grazing Platter</a>
             </div>
 
             <div class="menu-category-grid">
@@ -176,7 +224,7 @@
                       <span class="menu-item-title">Vinho Verde &amp; Atlantic Whites</span>
                       <span class="ph">[Selection &amp; price – owner to supply]</span>
                     </div>
-                    <p class="menu-item-desc">Crisp, mineral northern Portuguese whites ideal alongside seafood, salads and afternoon grazing.</p>
+                    <p class="menu-item-desc">Crisp, mineral northern Portuguese whites suited to seafood, salads and sunlit afternoon grazing.</p>
                   </li>
                   <li class="menu-item">
                     <div class="menu-item-top">
@@ -190,7 +238,7 @@
                       <span class="menu-item-title">Alentejo Sun-Ripened Reds &amp; Rosés</span>
                       <span class="ph">[Selection &amp; price – owner to supply]</span>
                     </div>
-                    <p class="menu-item-desc">Warm, generous southern Portuguese bottles suited to cured meats and aged sheep’s milk cheeses.</p>
+                    <p class="menu-item-desc">Generous southern Portuguese bottles ideal alongside cured meats and aged sheep’s milk cheeses.</p>
                   </li>
                   <li class="menu-item">
                     <div class="menu-item-top">
@@ -233,8 +281,8 @@
           </article>
         </div>
 
-        <!-- Visual Grazing Callout -->
-        <div class="split-grid" style="margin-top: 3rem;">
+        <!-- Grazing Feature & Office Box Callout -->
+        <div class="split-callout" style="margin-top: 2.75rem;">
           <figure class="editorial-figure">
             <img
               src="images/feature.jpg"
@@ -251,12 +299,13 @@
 
           <div>
             <span class="eyebrow">Hosting, Gifting &amp; Office Meetings</span>
-            <h2>Hosting at home or ordering for a High Street office?</h2>
+            <h2>Reserve Nata Boxes or Iberian Platters for Collection</h2>
             <p>
-              Reserve boxes of freshly baked <em>pastéis de nata</em>, ready-to-serve Iberian cheese and charcuterie platters, or bespoke Portuguese wine &amp; deli gift boxes for collection at 109 High Street.
+              Pre-order boxes of freshly baked <em>pastéis de nata</em>, ready-to-serve Iberian cheese and charcuterie platters, or bespoke Portuguese wine &amp; deli gift boxes for collection at 109 High Street.
             </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="boxes-preorder.html">Open Box Pre-Order Form</a>
+            <div class="tile-cta-row">
+              <a class="btn btn-primary" href="boxes-preorder.html?preset=nata12">Pre-Order Office Nata Box</a>
+              <a class="btn btn-azulejo" href="boxes-preorder.html?preset=grazing">Order Grazing Platter</a>
               <a class="btn btn-outline" href="tel:01642640274">Call 01642 640274</a>
             </div>
           </div>
@@ -271,7 +320,7 @@
         <div>
           <h3>Cafe Nossa</h3>
           <p>Independent Portuguese delicatessen, brunch &amp; coffee shop at 109 High Street, Yarm TS15 9BB. Open 7 days a week.</p>
-          <p><a href="tel:01642640274">01642 640274</a></p>
+          <p><a href="tel:01642640274"><strong>01642 640274</strong></a></p>
         </div>
         <div>
           <h3>Explore</h3>

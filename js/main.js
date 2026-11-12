@@ -1,10 +1,12 @@
 /* ==========================================================================
    Cafe Nossa — Client-Side Concept Interactions
-   Mobile Navigation, Counter Filter & Accessible Pre-Order Demo Form
+   Mobile Navigation, Mosaic Quick Box Builder, Counter Filter & Pre-Order Form
    ========================================================================== */
 
 (function () {
   'use strict';
+
+  var STORAGE_KEY = 'cafeNossaQuickBuilder';
 
   /* 1. Keyboard-Accessible Mobile Navigation */
   var navToggle = document.querySelector('.nav-toggle');
@@ -43,7 +45,51 @@
     });
   }
 
-  /* 2. Menu & Deli Counter Filter Buttons (menu-deli.html) */
+  /* 2. Hero Azulejo Mosaic Quick Box Builder (index.html Tile D) */
+  var quickBuilderForm = document.getElementById('mosaic-quick-builder');
+  if (quickBuilderForm) {
+    var qbQtyInput = document.getElementById('qb-qty');
+    var stepButtons = quickBuilderForm.querySelectorAll('[data-qty-step]');
+
+    stepButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (!qbQtyInput) return;
+        var delta = parseInt(btn.getAttribute('data-qty-step'), 10) || 0;
+        var current = parseInt(qbQtyInput.value, 10);
+        if (isNaN(current)) current = 1;
+        var next = Math.min(50, Math.max(1, current + delta));
+        qbQtyInput.value = String(next);
+      });
+    });
+
+    quickBuilderForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var checkedPreset = quickBuilderForm.querySelector('input[name="preset"]:checked');
+      var presetVal = checkedPreset ? checkedPreset.value : 'nata6';
+      var qtyVal = qbQtyInput ? parseInt(qbQtyInput.value, 10) : 1;
+      if (isNaN(qtyVal) || qtyVal < 1) qtyVal = 1;
+      if (qtyVal > 50) qtyVal = 50;
+
+      try {
+        window.localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({ preset: presetVal, qty: qtyVal, ts: Date.now() })
+        );
+      } catch (e) {
+        /* Ignore storage errors in private browsing */
+      }
+
+      var targetUrl =
+        'boxes-preorder.html?preset=' +
+        encodeURIComponent(presetVal) +
+        '&qty=' +
+        encodeURIComponent(String(qtyVal)) +
+        '#preorder-form';
+      window.location.href = targetUrl;
+    });
+  }
+
+  /* 3. Menu & Deli Counter Filter Buttons (menu-deli.html) */
   var filterButtons = document.querySelectorAll('[data-counter-filter]');
   var counterBlocks = document.querySelectorAll('[data-counter-section]');
 
@@ -56,17 +102,13 @@
         });
         counterBlocks.forEach(function (block) {
           var category = block.getAttribute('data-counter-section');
-          if (target === 'all' || category === target) {
-            block.hidden = false;
-          } else {
-            block.hidden = true;
-          }
+          block.hidden = !(target === 'all' || category === target);
         });
       });
     });
   }
 
-  /* 3. Grazing Platter & Pastry Box Pre-Order Form (boxes-preorder.html) */
+  /* 4. Grazing Platter & Pastry Box Pre-Order Form (boxes-preorder.html) */
   var preorderForm = document.getElementById('preorder-form');
   if (preorderForm) {
     var summaryBox = document.getElementById('sum-box-type');
@@ -75,18 +117,19 @@
     var summaryDate = document.getElementById('sum-collection-date');
     var summaryWindow = document.getElementById('sum-collection-window');
     var feedbackBox = document.getElementById('form-feedback');
+    var prefillNotice = document.getElementById('prefill-notice');
+    var sizeSelect = document.getElementById('box-size');
+    var qtyInput = document.getElementById('box-qty');
 
     function updateSummary() {
       var selectedBox = preorderForm.querySelector('input[name="box_type"]:checked');
-      var sizeSelect = document.getElementById('box-size');
-      var qtyInput = document.getElementById('box-qty');
       var dateInput = document.getElementById('collection-date');
       var timeSelect = document.getElementById('collection-time');
 
       if (summaryBox && selectedBox) {
         summaryBox.textContent = selectedBox.value;
       }
-      if (summarySize && sizeSelect) {
+      if (summarySize && sizeSelect && sizeSelect.selectedIndex >= 0) {
         summarySize.textContent = sizeSelect.options[sizeSelect.selectedIndex].text.split(' (')[0];
       }
       if (summaryQty && qtyInput) {
@@ -102,30 +145,87 @@
       }
     }
 
-    preorderForm.addEventListener('change', updateSummary);
-    preorderForm.addEventListener('input', updateSummary);
-    updateSummary();
+    function applyPresetSelection(preset, qty) {
+      var applied = false;
+      var presetMap = {
+        nata6: {
+          radioId: 'box-type-nata',
+          tierValue: 'Box of 6 Nata / Small Sharing'
+        },
+        nata: {
+          radioId: 'box-type-nata',
+          tierValue: 'Box of 6 Nata / Small Sharing'
+        },
+        nata12: {
+          radioId: 'box-type-nata',
+          tierValue: 'Box of 12 Office Box / Medium Hosting'
+        },
+        grazing: {
+          radioId: 'box-type-grazing',
+          tierValue: 'Box of 12 Office Box / Medium Hosting'
+        },
+        gift: {
+          radioId: 'box-type-gift',
+          tierValue: 'Box of 6 Nata / Small Sharing'
+        }
+      };
 
-    /* Pre-select box type from URL param if linked from cards (?box=nata|grazing|gift) */
-    try {
-      var params = new URLSearchParams(window.location.search);
-      var boxParam = params.get('box');
-      if (boxParam) {
-        var map = {
-          nata: 'box-type-nata',
-          grazing: 'box-type-grazing',
-          gift: 'box-type-gift'
-        };
-        var radioId = map[boxParam];
-        var radioEl = radioId ? document.getElementById(radioId) : null;
+      var cfg = preset ? presetMap[preset] : null;
+      if (cfg) {
+        var radioEl = document.getElementById(cfg.radioId);
         if (radioEl) {
           radioEl.checked = true;
-          updateSummary();
+          applied = true;
+        }
+        if (sizeSelect && cfg.tierValue) {
+          sizeSelect.value = cfg.tierValue;
+          applied = true;
+        }
+      }
+
+      if (qty && qtyInput) {
+        var parsedQty = parseInt(qty, 10);
+        if (!isNaN(parsedQty) && parsedQty >= 1 && parsedQty <= 50) {
+          qtyInput.value = String(parsedQty);
+          applied = true;
+        }
+      }
+
+      if (applied && prefillNotice) {
+        prefillNotice.hidden = false;
+      }
+    }
+
+    /* Pre-populate from URL params (?preset=nata6|nata12|grazing&qty=2) or localStorage */
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var urlPreset = params.get('preset') || params.get('box');
+      var urlQty = params.get('qty');
+
+      if (urlPreset || urlQty) {
+        applyPresetSelection(urlPreset, urlQty);
+        try {
+          window.localStorage.removeItem(STORAGE_KEY);
+        } catch (err) {
+          /* Ignore */
+        }
+      } else {
+        var rawStored = window.localStorage.getItem(STORAGE_KEY);
+        if (rawStored) {
+          var parsedStored = JSON.parse(rawStored);
+          if (parsedStored && parsedStored.ts && Date.now() - parsedStored.ts < 600000) {
+            applyPresetSelection(parsedStored.preset, parsedStored.qty);
+          }
+          window.localStorage.removeItem(STORAGE_KEY);
         }
       }
     } catch (e) {
-      /* Ignore URL parsing issues in older browsers */
+      /* Safe fallback */
     }
+
+    preorderForm.addEventListener('change', updateSummary);
+    preorderForm.addEventListener('input', updateSummary);
+    updateSummary();
 
     function setFieldError(input, message) {
       var errEl = document.getElementById(input.id + '-error');

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cafe Nossa emblem">
+  <rect width="64" height="64" rx="12" fill="#184377"/>
+  <rect x="4.5" y="4.5" width="55" height="55" rx="8.5" fill="none" stroke="#FBF9F4" stroke-width="1.5" stroke-opacity="0.85"/>
+  <path d="M32 7 L36 11 L32 15 L28 11 Z M32 49 L36 53 L32 57 L28 53 Z M7 32 L11 28 L15 32 L11 36 Z M49 32 L53 28 L57 32 L53 36 Z" fill="#D9822B"/>
+  <polygon points="32,12 52,32 32,52 12,32" fill="#FBF9F4"/>
+  <polygon points="32,15.5 48.5,32 32,48.5 15.5,32" fill="none" stroke="#184377" stroke-width="1.5"/>
+  <path d="M25 40V24h3.2l7.6 10.6V24H39v16h-3.1L28.2 29.3V40H25z" fill="#184377"/>
+</svg>

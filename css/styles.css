@@ -531,6 +531,11 @@ p {
   .nav-link {
     padding: 0.54rem 0.85rem;
     font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .header-cta-group .btn {
+    white-space: nowrap;
   }
 
   .header-cta-group {
@@ -540,6 +545,40 @@ p {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1200px) {
+  .placa-cartouche {
+    padding: 0.42rem 0.75rem;
+    gap: 0.5rem;
+  }
+  .placa-title {
+    font-size: 1.02rem;
+  }
+  .placa-street {
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+  }
+  .site-nav {
+    gap: 0.5rem;
+  }
+  .nav-list {
+    gap: 0.3rem;
+  }
+  .nav-link {
+    padding: 0.45rem 0.62rem;
+    font-size: 0.8rem;
+    gap: 0.35rem;
+  }
+  .cobalt-phone-badge {
+    padding: 0.45rem 0.68rem;
+    font-size: 0.79rem;
+  }
+  .header-cta-group .btn {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.8rem;
+    min-height: 40px;
   }
 }
 

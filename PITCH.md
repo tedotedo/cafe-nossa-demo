@@ -54,3 +54,23 @@ Before removing the concept banner and pointing `cafenossa.co.uk` live, confirm 
 - [ ] **Portuguese Wine & Deli overview:** Confirm preferred wine regions/price bands and deli counter highlights (`[Selection & price – owner to supply]`).
 - [ ] **Pre-Order Box tiers & notice period:** Confirm exact box counts/sizes, pricing, collection time windows, and minimum notice (e.g. 24h / 48h) (`[Box sizes & prices – owner to confirm]`, `[Minimum pre-order notice – owner to confirm]`).
 - [ ] **Photography swap (optional):** Replace AI-generated illustrative photos (`images/hero.jpg`, `images/feature.jpg`) with a 20-minute natural-light shoot inside 109 High Street.
+
+---
+
+## Set D — Fresh From the Oven (`/d/`)
+
+- **Live Concept URL:** https://tedotedo.github.io/cafe-nossa-demo/d/
+- **What it is:** Custard yellow and warm white with the pastel de nata as the hero: box builder, a standing Friday office order and a phone stamp card.
+- **Reach it from any page:** tap **D** in the Concept switcher in the top banner.
+
+### 3-Tap Phone Demo (Set D)
+1. Tap **Order a box**, then switch between **6**, **12** and **24**: the carton fills with natas.
+2. Turn on **Make it every Friday** and submit the form.
+3. Scroll to the stamp card and tap **Stamp it (demo)** a few times.
+
+### One-Line Pitch
+> *"A standing Friday order from two offices on the High Street is worth more than a hundred Instagram likes."*
+
+### Know Before You Show
+- The "baked today" count is made up and labelled as demo. Bake times, box prices, hours and the loyalty offer are placeholders.
+- Demo only: no form sends anything, and unknown details stay as bracketed `[...]` placeholders for the owner to confirm.

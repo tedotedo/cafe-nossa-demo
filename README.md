@@ -45,3 +45,9 @@ Open `index.html` directly in any modern browser, or serve the folder over a loc
 ```bash
 python3 -m http.server 8080
 ```
+
+## Set D — Fresh From the Oven
+
+- `d/index.html`, `d/css/styles.css`, `d/js/app.js` — Custard yellow and warm white with the pastel de nata as the hero: box builder, a standing Friday office order and a phone stamp card.
+- Live at https://tedotedo.github.io/cafe-nossa-demo/d/. Reuses the root `fonts/` and `images/`; same `noindex`, zero external requests and `.ph` placeholder rules as Sets A–C.
+- The "baked today" count is made up and labelled as demo. Bake times, box prices, hours and the loyalty offer are placeholders.

@@ -104,11 +104,29 @@
             <circle cx="18.5" cy="18.5" r="1.6" fill="#B85A19"/>
           </svg>
 
-          <span class="eyebrow">Collection at 109 High Street, Yarm TS15 9BB</span>
-          <h1 id="preorder-heading">Grazing Platter &amp; Pastry Box Pre-Order</h1>
-          <p class="lead">
-            Reserve freshly baked <em>pastéis de nata</em> boxes, Iberian cheese &amp; charcuterie platters or custom Portuguese wine hampers for collection — or call <a href="tel:01642640274"><strong>01642 640274</strong></a>.
-          </p>
+          <div class="subhero-split-grid">
+            <div>
+              <span class="eyebrow">Collection at 109 High Street, Yarm TS15 9BB</span>
+              <h1 id="preorder-heading">Grazing Platter &amp; Pastry Box Pre-Order</h1>
+              <p class="lead">
+                Reserve freshly baked <em>pastéis de nata</em> boxes, Iberian cheese &amp; charcuterie platters or custom Portuguese wine hampers for collection — or call <a href="tel:01642640274"><strong>01642 640274</strong></a>.
+              </p>
+            </div>
+
+            <figure class="editorial-figure subhero-media lightbox-trigger" data-lightbox data-caption="Freshly baked pastéis de nata boxed for Yarm High Street sharing &amp; offices" tabindex="0" role="button" aria-label="Enlarge illustrative image: Pastéis de nata and speciality coffee">
+              <img
+                src="images/hero.jpg"
+                width="1440"
+                height="803"
+                alt="Freshly baked Portuguese pastéis de nata on a cobalt-and-white ceramic plate beside speciality coffee"
+              >
+              <span class="zoom-pill-hint" aria-hidden="true">⤢ Enlarge</span>
+              <figcaption>
+                <span>Freshly baked <em>pastéis de nata</em> for sharing</span>
+                <span class="illustrative-tag">Illustrative image</span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -121,9 +139,19 @@
           </div>
 
           <h2 style="margin-bottom: 0.35rem;">Build Your Pre-Order Enquiry</h2>
-          <p class="field-hint" style="margin-bottom: 1.5rem;">
+          <p class="field-hint" style="margin-bottom: 1.1rem;">
             Fields marked <span class="req-star" aria-hidden="true">*</span> are required. Notice period: <span class="ph">[Minimum pre-order notice – owner to confirm]</span>
           </p>
+
+          <!-- 1-Tap Collection Presets -->
+          <div class="preset-bar-card" role="region" aria-label="1-tap collection presets">
+            <span class="preset-bar-kicker">1-Tap Collection Presets</span>
+            <div class="preset-chip-row">
+              <button type="button" class="preset-action-chip" data-preorder-preset="nata12">🥐 Office Box of 12 Natas</button>
+              <button type="button" class="preset-action-chip" data-preorder-preset="grazing">🧀 Weekend Iberian Grazing Platter</button>
+              <button type="button" class="preset-action-chip" data-preorder-preset="family6">☕ Family 6-Pack + Deli Selection</button>
+            </div>
+          </div>
 
           <form id="preorder-form" novalidate>
             <!-- 1. Box Type Selection -->
@@ -145,17 +173,17 @@
                 </label>
 
                 <label class="choice-tile" for="box-type-gift">
-                  <input type="radio" id="box-type-gift" name="box_type" value="Custom Deli Gift Box">
-                  <span class="choice-title">Custom Deli Gift Box</span>
-                  <span class="choice-note">Tailored selection of Iberian pantry delicacies, conservas &amp; optional wine.</span>
+                  <input type="radio" id="box-type-gift" name="box_type" value="Family 6-Pack + Deli Selection">
+                  <span class="choice-title">Family 6-Pack + Deli Selection</span>
+                  <span class="choice-note">Six warm custard tarts paired with Iberian pantry delicacies &amp; optional wine.</span>
                   <span class="ph">[Box sizes &amp; prices – owner to confirm]</span>
                 </label>
               </div>
             </fieldset>
 
-            <!-- 2. Size, Quantity & Wine Pairing -->
+            <!-- 2. Size, Quantity & Visual Custard Tart Tray -->
             <fieldset class="fieldset-reset">
-              <legend class="fieldset-legend">2. Box Format &amp; Quantity</legend>
+              <legend class="fieldset-legend">2. Box Format, Quantity &amp; Bakehouse Tray</legend>
               <div class="form-row two-col">
                 <div class="form-group">
                   <label for="box-size">Preferred Box Tier <span class="req-star" aria-hidden="true">*</span></label>
@@ -169,9 +197,22 @@
 
                 <div class="form-group">
                   <label for="box-qty">Quantity of Boxes <span class="req-star" aria-hidden="true">*</span></label>
-                  <input type="number" id="box-qty" name="box_qty" min="1" max="50" value="1" required>
+                  <div class="qty-inline-stepper">
+                    <button type="button" class="qb-step-btn" data-form-qty-step="-1" aria-label="Decrease quantity of boxes">−</button>
+                    <input type="number" id="box-qty" name="box_qty" min="1" max="50" value="1" required>
+                    <button type="button" class="qb-step-btn" data-form-qty-step="1" aria-label="Increase quantity of boxes">+</button>
+                  </div>
                   <span class="field-error" id="box-qty-error" aria-live="polite"></span>
                 </div>
+              </div>
+
+              <!-- Live Visual Custard Tart Box Tray Indicator -->
+              <div class="nata-tray-widget" id="preorder-nata-tray" aria-live="polite" style="margin-bottom: 1.1rem;">
+                <div class="nata-tray-head">
+                  <span class="nata-tray-title" data-tray-label>Bakehouse Custard Tart Box Preview</span>
+                  <span class="nata-tray-count" data-tray-count>6 tarts</span>
+                </div>
+                <div class="nata-tart-grid" data-tart-slots aria-hidden="true"></div>
               </div>
 
               <div class="form-group">
@@ -289,19 +330,52 @@
             <a class="btn btn-primary" style="width: 100%;" href="tel:01642640274">Or Call 01642 640274</a>
           </div>
 
-          <figure class="editorial-figure" style="margin-top: 1.4rem;">
-            <img
-              src="images/hero.jpg"
-              width="1440"
-              height="803"
-              alt="Freshly baked Portuguese pastéis de nata on a cobalt-and-white ceramic plate beside speciality coffee"
-              loading="lazy"
-            >
-            <figcaption>
-              <span>Freshly baked <em>pastéis de nata</em> for sharing</span>
-              <span class="illustrative-tag">Illustrative image</span>
-            </figcaption>
-          </figure>
+          <div class="sidebar-photo-stack" style="margin-top: 1.4rem; display: grid; gap: 1rem;">
+            <figure class="editorial-figure lightbox-trigger" data-lightbox data-caption="Abundant Iberian grazing board of cheeses, cured meats, figs &amp; olives on hand-painted blue-and-white Portuguese azulejo ceramic tiles" tabindex="0" role="button" aria-label="Enlarge illustrative image: Iberian grazing board on Portuguese azulejo ceramic tiles">
+              <img
+                src="images/detail-1.jpg"
+                width="1200"
+                height="896"
+                alt="Abundant Iberian grazing board on hand-painted blue-and-white Portuguese azulejo ceramic tiles"
+                loading="lazy"
+              >
+              <span class="zoom-pill-hint" aria-hidden="true">⤢ Enlarge</span>
+              <figcaption>
+                <span>Iberian grazing board on <em>azulejo</em> tiles</span>
+                <span class="illustrative-tag">Illustrative image</span>
+              </figcaption>
+            </figure>
+
+            <figure class="editorial-figure lightbox-trigger" data-lightbox data-caption="Custom Iberian deli gift box &amp; regional Portuguese wine pairings" tabindex="0" role="button" aria-label="Enlarge illustrative image: Iberian deli grazing box and regional Portuguese wines">
+              <img
+                src="images/feature.jpg"
+                width="1200"
+                height="896"
+                alt="Wooden Iberian grazing box beside bottles of regional Portuguese red wine"
+                loading="lazy"
+              >
+              <span class="zoom-pill-hint" aria-hidden="true">⤢ Enlarge</span>
+              <figcaption>
+                <span>Deli gift boxes &amp; Portuguese wine pairings</span>
+                <span class="illustrative-tag">Illustrative image</span>
+              </figcaption>
+            </figure>
+
+            <figure class="editorial-figure lightbox-trigger" data-lightbox data-caption="Sunlit all-day sourdough brunch, flat white latte art &amp; pastel de nata at 109 High Street" tabindex="0" role="button" aria-label="Enlarge illustrative image: Sunlit brunch sourdough poached eggs, flat white and pastel de nata">
+              <img
+                src="images/detail-2.jpg"
+                width="1200"
+                height="896"
+                alt="Sunlit all-day brunch sourdough poached eggs alongside flat white latte art and pastel de nata"
+                loading="lazy"
+              >
+              <span class="zoom-pill-hint" aria-hidden="true">⤢ Enlarge</span>
+              <figcaption>
+                <span>Sit-in brunch &amp; #1 espresso at 109 High St</span>
+                <span class="illustrative-tag">Illustrative image</span>
+              </figcaption>
+            </figure>
+          </div>
         </aside>
       </div>
     </section>
@@ -343,6 +417,24 @@
     <a class="btn btn-call-mobile" href="tel:01642640274">Call 01642 640274</a>
     <a class="btn btn-primary" href="#preorder-form">Pre-Order Form</a>
   </div>
+
+  <dialog class="photo-lightbox" id="photo-lightbox" aria-label="Editorial photo viewer">
+    <div class="lightbox-card">
+      <div class="lightbox-top">
+        <span class="illustrative-tag">Illustrative image</span>
+        <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close photo preview">✕</button>
+      </div>
+      <div class="lightbox-media">
+        <img id="lightbox-img" src="images/hero.jpg" alt="">
+      </div>
+      <div class="lightbox-footer">
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+        <a class="btn btn-primary btn-sm" href="#preorder-form" data-lightbox-cta>Jump to Pre-Order Form →</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="micro-toast" class="micro-toast" role="status" aria-live="polite" hidden></div>
 
   <script src="js/main.js"></script>
 </body>

@@ -131,58 +131,86 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   1. Top Concept Banner & Switcher
+   1. Top Concept Banner & Switcher (Compact <= 84px on 390px Mobile)
    ========================================================================== */
 .concept-banner {
   background-color: #040E1D;
   color: #FFFFFF;
-  font-size: 0.8rem;
-  line-height: 1.4;
+  font-size: 0.72rem;
+  line-height: 1.26;
   font-weight: 600;
-  padding: 0.45rem 0.75rem;
+  padding: 0.26rem 0.6rem;
   border-bottom: 2px solid var(--ochre);
+}
+
+@media (min-width: 720px) {
+  .concept-banner {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    padding: 0.36rem 0.8rem;
+  }
 }
 
 .concept-banner-inner {
   max-width: var(--container-max);
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 0.35rem 0.75rem;
-  text-align: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+@media (min-width: 720px) {
+  .concept-banner-inner {
+    justify-content: center;
+    gap: 0.4rem 0.85rem;
+    text-align: center;
+  }
 }
 
 .concept-banner p {
   margin: 0;
+  min-width: 0;
 }
 
 .concept-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.22rem;
   flex-shrink: 0;
 }
 
 .concept-switcher-label {
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-muted-light);
 }
 
+@media (max-width: 560px) {
+  .concept-switcher-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
 .concept-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 42px;
-  min-height: 42px;
-  padding: 0 0.6rem;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 0.5rem;
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 800;
+  line-height: 1;
   text-decoration: none;
   color: #FFFFFF;
   background: rgba(255, 255, 255, 0.1);
@@ -543,9 +571,16 @@ h1, h2, h3, h4 {
   background: #051122;
 }
 
+@media (max-width: 919px) {
+  .hero-visual-card {
+    order: -1;
+  }
+}
+
 .hero-visual-card img {
   width: 100%;
   aspect-ratio: 16 / 10;
+  min-height: 180px;
   object-fit: cover;
 }
 
@@ -1399,7 +1434,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   9. Floating Pill Dock (Mobile & Tablet)
+   9. Frosted Glass Floating Pill Dock + Auto-Clearance (Mobile & Tablet)
    ========================================================================== */
 .floating-pill-dock {
   position: fixed;
@@ -1408,13 +1443,22 @@ h1, h2, h3, h4 {
   bottom: calc(0.65rem + env(safe-area-inset-bottom, 0px));
   z-index: 160;
   background: rgba(5, 17, 34, 0.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1.5px solid var(--ochre);
   border-radius: 999px;
   padding: 0.38rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.4rem;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 14px 32px rgba(0, 0, 0, 0.52);
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.24s ease;
+}
+
+.floating-pill-dock.is-dock-hidden {
+  transform: translateY(130%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (min-width: 980px) {
@@ -1461,4 +1505,394 @@ h1, h2, h3, h4 {
   color: var(--cream);
   font-size: 0.72rem;
 }
+
+/* ==========================================================================
+   10. Awwwards / Godly Motion, View Transitions, Scroll Progress & Snap UI
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+.scroll-progress-rail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--ochre), var(--ochre-bright));
+  pointer-events: none;
+  z-index: 30;
+  transition: transform 0.08s linear;
+}
+
+.snap-controls {
+  align-items: center;
+}
+
+.snap-counter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  background: var(--cobalt-card);
+  border: 1px solid var(--cobalt-border);
+  color: var(--ochre-bright);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.snap-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.snap-dot {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.snap-dot::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(251, 246, 236, 0.28);
+  transition: width 0.22s ease, background-color 0.22s ease;
+}
+
+.snap-dot.is-active::before {
+  width: 24px;
+  background: var(--ochre-bright);
+}
+
+/* ==========================================================================
+   11. Presets, Custard Tart Box Visualizer, Lightbox, Toast & Receipt Ticket
+   ========================================================================== */
+.b-preset-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.b-preset-chip {
+  min-height: 42px;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--cobalt-border);
+  background: var(--cobalt-card);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+
+.b-preset-chip:hover,
+.b-preset-chip.is-active {
+  background: var(--ochre-bright);
+  border-color: var(--ochre-bright);
+  color: var(--cobalt-abyss);
+}
+
+.b-nata-tray-card {
+  background: var(--cobalt-card);
+  border: 1px solid var(--cobalt-border);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.b-nata-tray-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.55rem;
+}
+
+.b-nata-tray-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--cream);
+}
+
+.b-nata-tray-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(236, 160, 82, 0.16);
+  color: var(--ochre-bright);
+  border: 1px solid rgba(236, 160, 82, 0.45);
+}
+
+.b-tart-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.b-tart-slot {
+  aspect-ratio: 1;
+  max-width: 34px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1.5px dashed var(--cobalt-border);
+  background: rgba(8, 26, 51, 0.65);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.b-tart-slot.is-filled {
+  border: 2px solid var(--ochre-bright);
+  background: radial-gradient(circle at 42% 38%, #FDE293 0%, #E79B32 62%, #8C3D0B 95%);
+  box-shadow: 0 2px 8px rgba(236, 160, 82, 0.32);
+  transform: scale(1.04);
+}
+
+.b-tart-slot.is-deli {
+  border: 2px solid var(--cream);
+  background: radial-gradient(circle at 40% 40%, #FBF6EC 0%, #D97228 75%, #0D2444 100%);
+}
+
+/* Lightbox Trigger & Native <dialog> */
+.lightbox-trigger {
+  position: relative;
+  cursor: zoom-in;
+}
+
+.zoom-pill-hint {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(5, 17, 34, 0.86);
+  color: var(--cream);
+  border: 1px solid rgba(251, 246, 236, 0.34);
+  font-size: 0.68rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.photo-lightbox {
+  border: 1.5px solid var(--ochre);
+  border-radius: 18px;
+  padding: 0;
+  max-width: min(94vw, 860px);
+  width: 100%;
+  background: var(--cobalt-card);
+  color: var(--cream);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.65);
+}
+
+.photo-lightbox::backdrop {
+  background: rgba(4, 12, 24, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.lightbox-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.95rem;
+  background: #06152A;
+  border-bottom: 1px solid var(--cobalt-border);
+}
+
+.lightbox-close {
+  min-width: 42px;
+  min-height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--cobalt-border);
+  background: var(--cobalt-elevated);
+  color: var(--cream);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  background: var(--ochre);
+  color: var(--cobalt-abyss);
+}
+
+.lightbox-media {
+  background: #040E1D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-media img {
+  width: 100%;
+  max-height: 66vh;
+  object-fit: contain;
+}
+
+.lightbox-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #06152A;
+  border-top: 1px solid var(--cobalt-border);
+}
+
+.lightbox-caption {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cream);
+  flex: 1 1 220px;
+}
+
+/* Micro-Toast */
+.micro-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(5.1rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 260;
+  background: rgba(8, 26, 51, 0.97);
+  color: var(--cream);
+  border: 1.5px solid var(--ochre-bright);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  max-width: min(92vw, 420px);
+  text-align: center;
+}
+
+@media (min-width: 980px) {
+  .micro-toast {
+    bottom: 1.5rem;
+  }
+}
+
+/* Live Digital Enquiry Ticket inside #b-form-feedback */
+.demo-verbatim-banner {
+  margin: 0 0 0.85rem;
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.owner-receipt-ticket {
+  background: #081A33;
+  border: 1px solid var(--cobalt-border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.ticket-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
+  border-bottom: 1px dashed var(--cobalt-border);
+}
+
+.ticket-heading {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ochre-bright);
+}
+
+.ticket-ref {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.14rem 0.5rem;
+  border-radius: 999px;
+  background: var(--cobalt-elevated);
+  color: var(--cream);
+}
+
+.ticket-dl {
+  margin: 0 0 0.85rem;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.83rem;
+}
+
+.ticket-dl div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.3rem;
+}
+
+.ticket-dl dt {
+  font-weight: 700;
+  color: var(--text-muted-light);
+}
+
+.ticket-dl dd {
+  margin: 0;
+  font-weight: 800;
+  color: var(--cream);
+  text-align: right;
+}
+
+.ticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ticket-actions .btn {
+  min-height: 40px;
+  padding: 0.42rem 0.85rem;
+  font-size: 0.8rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 

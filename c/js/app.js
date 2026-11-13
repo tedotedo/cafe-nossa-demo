@@ -1,10 +1,45 @@
 /* ==========================================================================
    Cafe Nossa — Concept C: Pastelaria Click-&-Collect Single-Page App
-   Sticky Tab Spy, Deli Filter, 1-Tap Date Chips & Mobbin 3-Step Pre-Order Stepper
+   Scroll Progress, 1-Tap Presets, Tart Tray, Lightbox, Auto-Dock & Receipt Ticket
    ========================================================================== */
 
 (function () {
   'use strict';
+
+  var toastTimer = null;
+  function showMicroToast(msg) {
+    var toast = document.getElementById('micro-toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.hidden = false;
+    if (toastTimer) window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function () {
+      toast.hidden = true;
+    }, 2600);
+  }
+
+  /* 0. Sticky Header Scroll-Progress Hairline */
+  var appHeader = document.querySelector('.app-header');
+  if (appHeader && !appHeader.querySelector('.scroll-progress-rail')) {
+    var rail = document.createElement('div');
+    rail.className = 'scroll-progress-rail';
+    rail.setAttribute('aria-hidden', 'true');
+    appHeader.appendChild(rail);
+    var ticking = false;
+    var updateProgress = function () {
+      var docH = document.documentElement.scrollHeight - window.innerHeight;
+      var ratio = docH > 40 ? Math.min(1, Math.max(0, window.scrollY / docH)) : 0;
+      rail.style.transform = 'scaleX(' + ratio.toFixed(4) + ')';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateProgress);
+      }
+    }, { passive: true });
+    updateProgress();
+  }
 
   /* 1. Sticky Pill-Tab Active Highlight */
   var pillTabs = document.querySelectorAll('[data-spy-tab]');
@@ -49,8 +84,74 @@
     });
   });
 
-  /* 3. Mobbin 3-Step Pre-Order Stepper */
+  /* 3. Native <dialog> Photo Lightbox */
+  var lightbox = document.getElementById('photo-lightbox');
+  if (lightbox) {
+    var lbImg = document.getElementById('lightbox-img');
+    var lbCap = document.getElementById('lightbox-caption');
+    var lbClose = lightbox.querySelector('[data-lightbox-close]');
+    var lbCta = lightbox.querySelector('[data-lightbox-cta]');
+
+    function openLightbox(fig) {
+      var img = fig.querySelector('img');
+      if (!img || !lbImg) return;
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt || '';
+      var cap = fig.getAttribute('data-caption') || img.alt;
+      if (lbCap) lbCap.textContent = cap;
+      if (typeof lightbox.showModal === 'function') lightbox.showModal();
+      else lightbox.setAttribute('open', '');
+    }
+
+    function closeLightbox() {
+      if (typeof lightbox.close === 'function' && lightbox.open) lightbox.close();
+      else lightbox.removeAttribute('open');
+    }
+
+    document.querySelectorAll('[data-lightbox]').forEach(function (fig) {
+      fig.addEventListener('click', function (e) {
+        if (e.target && e.target.closest('a, button')) return;
+        openLightbox(fig);
+      });
+      fig.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(fig);
+        }
+      });
+    });
+
+    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+    if (lbCta) lbCta.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  /* 4. Frosted Floating Dock Auto-Clearance on Form & Footer */
   var form = document.getElementById('c-stepper-form');
+  var dock = document.querySelector('.mobile-bottom-dock');
+  if (dock && 'IntersectionObserver' in window) {
+    var watchTargets = [];
+    if (form) watchTargets.push(form);
+    var footerEl = document.querySelector('footer');
+    if (footerEl) watchTargets.push(footerEl);
+
+    if (watchTargets.length) {
+      var activeTargets = new Set();
+      var dockObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) activeTargets.add(entry.target);
+          else activeTargets.delete(entry.target);
+        });
+        dock.classList.toggle('is-dock-hidden', activeTargets.size > 0);
+      }, { threshold: 0.06 });
+
+      watchTargets.forEach(function (t) { dockObs.observe(t); });
+    }
+  }
+
+  /* 5. Mobbin 3-Step Pre-Order Stepper + 1-Tap Presets + Tart Visualizer */
   if (!form) return;
 
   var panes = form.querySelectorAll('[data-step-pane]');
@@ -61,7 +162,49 @@
   var sumItem = document.getElementById('c-sum-item');
   var sumWhen = document.getElementById('c-sum-when');
   var feedback = document.getElementById('c-form-feedback');
+  var nataTray = document.getElementById('c-nata-tray');
+  var cPresetChips = document.querySelectorAll('[data-c-preset]');
   var currentStep = 1;
+
+  function renderNataTray() {
+    if (!nataTray) return;
+    var slotsHost = nataTray.querySelector('[data-tart-slots]');
+    var titleEl = nataTray.querySelector('[data-tray-label]');
+    var badgeEl = nataTray.querySelector('[data-tray-count]');
+    if (!slotsHost) return;
+
+    var checked = form.querySelector('input[name="box_choice"]:checked');
+    var boxName = checked ? checked.value : 'Box of 6 Pastéis de Nata';
+    var q = Math.max(1, parseInt(qtyInput ? qtyInput.value : '1', 10) || 1);
+    var isPlatter = boxName.indexOf('Grazing') !== -1;
+    var tartsPerBox = isPlatter ? 0 : (boxName.indexOf('12') !== -1 ? 12 : 6);
+    var totalTarts = tartsPerBox * q;
+    var filled = isPlatter ? Math.min(12, q * 6) : Math.min(12, totalTarts);
+
+    if (isPlatter) {
+      if (titleEl) titleEl.textContent = 'Artisan Iberian Grazing Board Tray';
+      if (badgeEl) badgeEl.textContent = q + (q === 1 ? ' platter' : ' platters');
+    } else {
+      if (titleEl) {
+        titleEl.textContent = tartsPerBox === 12
+          ? '12-Tart High Street Office Box Tray'
+          : (boxName.indexOf('Deli') !== -1 ? '6-Tart Family Box + Deli Selection' : '6-Tart Bakehouse Sharing Tray');
+      }
+      if (badgeEl) {
+        badgeEl.textContent = totalTarts + ' golden tarts (' + q + (q === 1 ? ' box' : ' boxes') + ')';
+      }
+    }
+
+    slotsHost.innerHTML = '';
+    for (var i = 0; i < 12; i++) {
+      var s = document.createElement('span');
+      s.className = 'c-tart-slot';
+      if (i < filled) {
+        s.classList.add(isPlatter ? 'is-deli' : 'is-filled');
+      }
+      slotsHost.appendChild(s);
+    }
+  }
 
   function setError(el, msg) {
     if (!el) return;
@@ -109,12 +252,11 @@
     var d = dateInput && dateInput.value ? dateInput.value : 'Date to confirm';
     var w = windowSelect && windowSelect.value ? windowSelect.value : 'Window to confirm';
     if (sumWhen) sumWhen.textContent = d + ' · ' + w;
+    renderNataTray();
   }
 
   function validateStep(stepNum) {
-    if (stepNum === 1) {
-      return validateInput(qtyInput);
-    }
+    if (stepNum === 1) return validateInput(qtyInput);
     if (stepNum === 2) {
       var okDate = validateInput(dateInput);
       var okWin = validateInput(windowSelect);
@@ -142,12 +284,34 @@
     updateReceipt();
   }
 
+  cPresetChips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var p = chip.getAttribute('data-c-preset');
+      cPresetChips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+      var targetId = 'c-box-6';
+      var toastMsg = '';
+      if (p === 'office12') {
+        targetId = 'c-box-office';
+        toastMsg = '🥐 Preset selected: Office Box of 12 Natas';
+      } else if (p === 'grazing') {
+        targetId = 'c-box-platter';
+        toastMsg = '🧀 Preset selected: Weekend Iberian Grazing Platter';
+      } else if (p === 'family6') {
+        targetId = 'c-box-gift';
+        toastMsg = '☕ Preset selected: Family 6-Pack + Deli Selection';
+      }
+      var radio = document.getElementById(targetId);
+      if (radio) radio.checked = true;
+      if (qtyInput) qtyInput.value = '1';
+      showStep(1);
+      showMicroToast(toastMsg);
+    });
+  });
+
   document.querySelectorAll('[data-next-step]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var next = parseInt(btn.getAttribute('data-next-step'), 10);
-      if (validateStep(currentStep)) {
-        showStep(next);
-      }
+      if (validateStep(currentStep)) showStep(next);
     });
   });
 
@@ -171,31 +335,36 @@
     });
   });
 
-  /* Quantity +/- buttons */
   document.querySelectorAll('[data-c-qty]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       if (!qtyInput) return;
       var delta = parseInt(btn.getAttribute('data-c-qty'), 10) || 0;
       var cur = parseInt(qtyInput.value, 10) || 1;
-      qtyInput.value = String(Math.min(50, Math.max(1, cur + delta)));
+      var next = Math.min(50, Math.max(1, cur + delta));
+      qtyInput.value = String(next);
       validateInput(qtyInput);
       updateReceipt();
+      showMicroToast('Tray updated: ' + next + (next === 1 ? ' box' : ' boxes'));
     });
   });
 
-  /* Quick Select Preset buttons from Bakery/Deli list */
   document.querySelectorAll('[data-select-preset]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var targetVal = btn.getAttribute('data-select-preset');
       var radio = form.querySelector('input[name="box_choice"][value="' + targetVal + '"]');
+      if (!radio && targetVal.indexOf('Gift') !== -1) {
+        radio = document.getElementById('c-box-gift');
+      }
       if (radio) radio.checked = true;
       showStep(1);
+      updateReceipt();
+      showMicroToast('Selected: ' + (radio ? radio.value : targetVal));
       var stepperEl = document.getElementById('preorder-box');
       if (stepperEl) stepperEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  /* 4. 1-Tap Collection Date Chips */
+  /* 6. 1-Tap Collection Date Chips */
   function toIso(d) {
     var m = String(d.getMonth() + 1).padStart(2, '0');
     var day = String(d.getDate()).padStart(2, '0');
@@ -231,16 +400,35 @@
           b.classList.add('is-selected');
           validateInput(dateInput);
           updateReceipt();
+          showMicroToast('Collection date set: ' + p.label);
         });
         chipWrap.appendChild(b);
       });
     }
   }
 
-  form.addEventListener('change', updateReceipt);
+  form.addEventListener('change', function (e) {
+    updateReceipt();
+    if (e.target && e.target.name === 'box_choice') {
+      cPresetChips.forEach(function (c) { c.classList.remove('is-active'); });
+      showMicroToast('Selected: ' + e.target.value);
+    }
+  });
   form.addEventListener('input', updateReceipt);
+  updateReceipt();
 
-  /* 5. Final Step Validation & Exact Demo Submission Message */
+  function addTicketRow(dl, label, value) {
+    var row = document.createElement('div');
+    var dt = document.createElement('dt');
+    dt.textContent = label;
+    var dd = document.createElement('dd');
+    dd.textContent = value;
+    row.appendChild(dt);
+    row.appendChild(dd);
+    dl.appendChild(row);
+  }
+
+  /* 7. Final Step Validation & Live Digital Enquiry Ticket */
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!validateStep(1)) { showStep(1); return; }
@@ -267,11 +455,108 @@
     }
 
     if (feedback) {
+      var checked = form.querySelector('input[name="box_choice"]:checked');
+      var boxName = checked ? checked.value : 'Box of 6 Pastéis de Nata';
+      var q = qtyInput ? qtyInput.value : '1';
+      var colDate = dateInput ? dateInput.value : '';
+      var colWin = windowSelect ? windowSelect.value : '';
+      var wineNote = ((document.getElementById('c-wine-note') || {}).value) || 'No wine addition';
+      var notesVal = ((document.getElementById('c-notes') || {}).value || '').trim() || 'None specified';
+      var nameVal = ((document.getElementById('c-name') || {}).value || '').trim();
+      var phoneVal = ((document.getElementById('c-phone') || {}).value || '').trim();
+      var emailVal = ((document.getElementById('c-email') || {}).value || '').trim();
+      var refCode = 'CN-C-' + String(Math.floor(1000 + Math.random() * 9000));
+
+      var plainReceipt = [
+        'Cafe Nossa — Pre-Order Enquiry (' + refCode + ')',
+        'Customer: ' + nameVal,
+        'Contact: ' + phoneVal + ' | ' + emailVal,
+        'Collection: ' + colDate + ' (' + colWin + ') at 109 High Street, Yarm TS15 9BB',
+        'Selection: ' + q + ' × ' + boxName,
+        'Wine Note: ' + wineNote,
+        'Notes: ' + notesVal
+      ].join('\n');
+
       feedback.hidden = false;
       feedback.className = 'form-feedback is-success';
-      feedback.textContent = 'Demo only – in the live site this would go straight to Cafe Nossa.';
+      feedback.innerHTML = '';
+
+      var bannerP = document.createElement('p');
+      bannerP.className = 'demo-verbatim-banner';
+      bannerP.textContent = 'Demo only – in the live site this would go straight to Cafe Nossa.';
+      feedback.appendChild(bannerP);
+
+      var ticket = document.createElement('div');
+      ticket.className = 'owner-receipt-ticket';
+
+      var topBar = document.createElement('div');
+      topBar.className = 'ticket-top-bar';
+      var hSpan = document.createElement('span');
+      hSpan.className = 'ticket-heading';
+      hSpan.textContent = 'What Cafe Nossa Receives';
+      var rSpan = document.createElement('span');
+      rSpan.className = 'ticket-ref';
+      rSpan.textContent = 'Ref: ' + refCode;
+      topBar.appendChild(hSpan);
+      topBar.appendChild(rSpan);
+      ticket.appendChild(topBar);
+
+      var dl = document.createElement('dl');
+      dl.className = 'ticket-dl';
+      addTicketRow(dl, 'Customer', nameVal);
+      addTicketRow(dl, 'Phone / Email', phoneVal + ' · ' + emailVal);
+      addTicketRow(dl, 'Collection', colDate + ' · ' + colWin);
+      addTicketRow(dl, 'Box Selection', q + ' × ' + boxName);
+      addTicketRow(dl, 'Wine Advice', wineNote);
+      addTicketRow(dl, 'Notes', notesVal);
+      ticket.appendChild(dl);
+
+      var actions = document.createElement('div');
+      actions.className = 'ticket-actions';
+
+      var copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'btn btn-cobalt btn-sm';
+      copyBtn.textContent = 'Copy Summary';
+      copyBtn.addEventListener('click', function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(plainReceipt).then(function () {
+            copyBtn.textContent = 'Copied ✓';
+            showMicroToast('Enquiry summary copied to clipboard');
+          }).catch(function () {
+            showMicroToast('Summary ready above');
+          });
+        } else {
+          copyBtn.textContent = 'Copied ✓';
+          showMicroToast('Enquiry summary copied');
+        }
+      });
+
+      var resetBtn = document.createElement('button');
+      resetBtn.type = 'button';
+      resetBtn.className = 'btn btn-outline-cobalt btn-sm';
+      resetBtn.textContent = 'Reset Demo';
+      resetBtn.addEventListener('click', function () {
+        form.reset();
+        cPresetChips.forEach(function (c) { c.classList.remove('is-active'); });
+        if (chipWrap) {
+          chipWrap.querySelectorAll('.date-pill-btn').forEach(function (c) { c.classList.remove('is-selected'); });
+        }
+        [qtyInput, dateInput, windowSelect, document.getElementById('c-name'), document.getElementById('c-phone'), document.getElementById('c-email')].forEach(function (f) {
+          setError(f, '');
+        });
+        feedback.hidden = true;
+        feedback.innerHTML = '';
+        showStep(1);
+        showMicroToast('Demo form reset');
+      });
+
+      actions.appendChild(copyBtn);
+      actions.appendChild(resetBtn);
+      ticket.appendChild(actions);
+      feedback.appendChild(ticket);
+
       feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   });
 })();
-

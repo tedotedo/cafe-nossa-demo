@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F6C445">
+  <title>Cafe Nossa | Concept D — Fresh From the Oven (109 High Street, Yarm)</title>
+  <meta name="description" content="Concept D for Cafe Nossa at 109 High Street, Yarm: pastéis de nata fresh from the oven, a box builder for collection, a standing Friday office order and a stamp card.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Persistent Top Concept Banner + [A] [B] [C] [D] Switcher -->
+  <div class="concept-banner" role="region" aria-label="Concept website notice">
+    <div class="concept-banner__inner">
+      <p>Concept design by Mark Aszkenasy – not the official website of Cafe Nossa.</p>
+      <nav class="concept-switcher" aria-label="Switch concept version">
+        <span class="concept-switcher__label">Concept:</span>
+        <a class="concept-switcher__pill" href="../index.html"><span>A</span></a>
+        <a class="concept-switcher__pill" href="../b/index.html"><span>B</span></a>
+        <a class="concept-switcher__pill" href="../c/index.html"><span>C</span></a>
+        <a class="concept-switcher__pill is-active" href="index.html" aria-current="page"><span>D</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="site-head">
+    <div class="wrap site-head__inner">
+      <a class="brand" href="#top">
+        <img src="../images/logo-mark.svg" width="36" height="36" alt="">
+        <span>
+          <span class="brand__name">Cafe Nossa</span>
+          <span class="brand__meta">109 High Street · Yarm</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Sections"><a href="#box">Order a box</a><a href="#card">Stamp card</a><a href="#deli">Deli &amp; wine</a><a href="#visit">Visit</a></nav>
+      <a class="btn btn--hi site-head__cta" href="#box">Order a box</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="oven" id="top" aria-labelledby="oven-title">
+      <div class="wrap oven__grid">
+        <div>
+          <p class="badge">#1 Coffee · This Is Yarm</p>
+          <h1 class="oven__title" id="oven-title">Fresh from<br>the oven.</h1>
+          <p class="oven__lead">Pastéis de nata, Portuguese coffee and an Iberian deli counter on Yarm High Street.</p>
+          <div class="oven__actions">
+            <a class="btn btn--ink" href="#box">Order a box</a>
+            <a class="btn btn--ghost" href="#visit">Find us</a>
+          </div>
+        </div>
+        <div class="oven__tray" aria-hidden="true">
+          <i class="nata nata--xl"></i>
+          <i class="nata nata--s1"></i>
+          <i class="nata nata--s2"></i>
+        </div>
+      </div>
+      <div class="wrap">
+        <dl class="today">
+          <div><dt>Baked today</dt><dd><b data-baked>0</b> <span class="ph">[Demo count]</span></dd></div>
+          <div><dt>Next tray out</dt><dd><span class="ph">[Bake times – owner to confirm]</span></dd></div>
+          <div><dt>Open</dt><dd><span class="ph">[Exact daily hours – owner to confirm]</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Box builder -->
+    <section class="sec box" id="box" aria-labelledby="box-title">
+      <div class="wrap box__grid">
+        <div>
+          <p class="eyebrow">Click &amp; collect</p>
+          <h2 class="section-title" id="box-title">Box them up</h2>
+          <div class="sizes" role="group" aria-label="Box size">
+            <button type="button" class="size" aria-pressed="false" data-size="6"><b>6</b><span>Share box</span><small>[£—]</small></button>
+            <button type="button" class="size" aria-pressed="true" data-size="12"><b>12</b><span>Office box</span><small>[£—]</small></button>
+            <button type="button" class="size" aria-pressed="false" data-size="24"><b>24</b><span>Party box</span><small>[£—]</small></button>
+          </div>
+          <p class="box__note"><span class="ph">[Box sizes &amp; prices – owner to confirm]</span> <span class="ph">[Minimum pre-order notice – owner to confirm]</span></p>
+
+          <form class="form" data-order novalidate>
+            <div class="form__row form__row--half">
+              <div><label for="o-date">Collect on</label><input id="o-date" name="date" type="date" required></div>
+              <div><label for="o-name">Name</label><input id="o-name" name="name" type="text" autocomplete="name" required></div>
+            </div>
+            <div class="form__row"><label for="o-phone">Phone</label><input id="o-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+            <label class="switch"><input type="checkbox" name="weekly"><span class="switch__track" aria-hidden="true"></span><span><b>Make it every Friday</b><br>A standing order for the office. Pause any time.</span></label>
+            <p class="form__error" data-order-error role="alert" hidden>Add a collection date, your name and a phone number.</p>
+            <button class="btn btn--ink btn--block" type="submit">Request this box</button>
+            <p class="form__fine">Demo only. Pay on collection at 109 High Street.</p>
+            <div class="form__done" data-order-done role="status" hidden></div>
+          </form>
+        </div>
+
+        <div class="carton" aria-hidden="true">
+          <div class="carton__lid"><span>Cafe Nossa</span></div>
+          <div class="carton__tray" data-tray></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stamp card -->
+    <section class="sec stamp" id="card" aria-labelledby="card-title">
+      <div class="wrap stamp__grid">
+        <div>
+          <p class="eyebrow">For regulars</p>
+          <h2 class="section-title" id="card-title">A stamp card that lives on your phone</h2>
+          <p class="lead">No app, no login. Show it at the till and we stamp it. <span class="ph">[Loyalty offer – owner to confirm]</span></p>
+        </div>
+        <div class="loyalty">
+          <p class="loyalty__head"><span>Cafe Nossa</span><span data-stamp-count>0 / 8</span></p>
+          <ol class="loyalty__grid" data-stamps></ol>
+          <div class="loyalty__actions">
+            <button type="button" class="btn btn--ink" data-stamp-add>Stamp it (demo)</button>
+            <button type="button" class="btn btn--ghost" data-stamp-reset>Start again</button>
+          </div>
+          <p class="loyalty__msg" data-stamp-msg aria-live="polite">Eight stamps, then one on the house.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deli & wine -->
+    <section class="sec deli" id="deli" aria-labelledby="deli-title">
+      <div class="wrap deli__grid">
+        <figure>
+          <img src="../images/feature.jpg" width="1200" height="896" alt="Illustrative image of an Iberian grazing platter with wine" loading="lazy">
+          <figcaption class="illus">Illustrative image – not Cafe Nossa's own photography.</figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow">Behind the counter</p>
+          <h2 class="section-title" id="deli-title">Iberian deli &amp; Portuguese wine</h2>
+          <ul class="shelf">
+            <li><b>Grazing platters</b><span class="ph">[Sizes, prices &amp; notice – owner to confirm]</span></li>
+            <li><b>Cheese &amp; charcuterie</b><span class="ph">[Selection &amp; price – owner to supply]</span></li>
+            <li><b>Wine: Vinho Verde, Douro, Alentejo</b><span class="ph">[Selection &amp; price bands – owner to supply]</span></li>
+            <li><b>Coffee &amp; brunch</b><span class="ph">[Selection &amp; price – owner to supply]</span></li>
+          </ul>
+          <p><span class="ph">[Allergen matrix – owner to supply]</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit__grid">
+        <div>
+          <h2 class="section-title" id="visit-title">Come and say olá.</h2>
+          <address>109 High Street, Yarm TS15 9BB</address>
+          <p><a class="visit__tel" href="tel:01642640274">01642 640274</a></p>
+          <p><span class="ph">[Exact daily hours – owner to confirm]</span></p>
+          <p><span class="ph">[Email address – owner to confirm]</span> <span class="ph">[Instagram handle – owner to confirm]</span></p>
+        </div>
+        <figure>
+          <img src="../images/hero.jpg" width="1200" height="896" alt="Illustrative image of pastéis de nata and a coffee on a cafe table" loading="lazy">
+          <figcaption class="illus">Illustrative image – not Cafe Nossa's own photography.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="foot__links">
+        <a href="../index.html">Concept A</a>
+        <a href="../b/index.html">Concept B</a>
+        <a href="../c/index.html">Concept C</a>
+        <a href="index.html" aria-current="page">Concept D</a>
+      </p>
+      <p><strong>Concept disclaimer:</strong> Concept design by Mark Aszkenasy – not the official website of Cafe Nossa. All bracketed items are placeholders awaiting owner confirmation. The baked-today count and bake times are illustrative. No forms transmit data and no cookies are set.</p>
+      <p><strong>Illustrative image credit:</strong> Photographs shown on this concept page are AI-generated illustrative images used solely to demonstrate visual layout and do not depict the actual business, its work, products or premises.</p>
+    </div>
+  </footer>
+
+  <nav class="dock" aria-label="Quick actions"><a href="tel:01642640274">Call</a><a href="#card">Stamp card</a><a class="dock__primary" href="#box">Order a box</a></nav>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

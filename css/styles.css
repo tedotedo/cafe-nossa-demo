@@ -1928,3 +1928,8 @@ textarea[aria-invalid="true"] {
     min-width: 40px;
   }
 }
+
+/* === Android Chrome / Samsung Internet & 360px Polish === */
+a, button, summary, label, input, select {
+  -webkit-tap-highlight-color: transparent;
+}
